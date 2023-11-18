@@ -194,7 +194,7 @@ def ondelete(*, at_uninstall):
     return attrsetter('_ondelete', at_uninstall)
 
 
-def onchange(*args):
+def onchange(*args: object) -> object:
     """Return a decorator to decorate an onchange method for given fields.
 
     In the form views where the field appears, the method will be called

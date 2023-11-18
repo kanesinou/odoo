@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="workflowable_type_menu_action" model="ir.actions.act_window">
+        <field name="name">Workflowable Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflowable.type</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflowable_type_list" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new workflowable type
+            </p>
+            <p>
+                An account is part of a ledger allowing your company
+                to register all kinds of debit and credit transactions.
+                Companies present their annual accounts in two main parts: the
+                balance sheet and the income statement (profit and loss
+                account). The annual accounts of a company are required by law
+                to disclose a certain amount of information.
+            </p>
+        </field>
+    </record>
+    <record id="workflow_procedure_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedures</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_list" />
+    </record>
+    <record id="workflow_procedure_stage_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Stages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.stage</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_stage_list" />
+    </record>
+    <record id="workflow_procedure_cycle_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Cycles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.cycle</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_cycle_list" />
+    </record>
+    <record id="workflow_procedure_transition_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Transitions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.transition</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_transition_list" />
+    </record>
+    <record id="workflow_procedure_stage_transition_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Stage Transitions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.stage.transition</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_stage_transition_list" />
+    </record>
+    <record id="workflow_procedure_execution_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Executions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.execution</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_execution_list" />
+    </record>
+    <record id="workflow_user_menu_action" model="ir.actions.act_window">
+        <field name="name">Users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.user</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_user_list" />
+    </record>
+    <record id="workflow_user_role_menu_action" model="ir.actions.act_window">
+        <field name="name">User Roles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.user.role</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_user_role_list" />
+    </record>
+    <record id="workflow_procedure_collision_menu_action" model="ir.actions.act_window">
+        <field name="name">Procedure Collisions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.procedure.collision</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_procedure_collision_list" />
+    </record>
+</odoo>

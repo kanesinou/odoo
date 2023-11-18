@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_list" model="ir.ui.view">
+        <field name="name">workflow.list</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <tree string="Workflows">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="base_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="activity_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_form" model="ir.ui.view">
+        <field name="name">workflow.form</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <form string="Workflow">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="base_workflow" />
+                            <field name="activity_workflow" />
+                        </group>
+                        <group>
+                            <field name="codename" />
+                            <field name="name" />
+                        </group>
+                        <field name="parent_allowed" invisible="1" />
+                        <field name="children_allowed" invisible="1" />
+                        <field name="states_allowed" invisible="1" />
+                        <field name="stages_allowed" invisible="1" />
+                        <field name="stage_transitions_allowed" invisible="1" />
+                        <field name="sub_transitions_allowed" invisible="1" />
+                    </group>
+                    <notebook>
+                        <page id="workflow.workflow_ids" name="Sub Workflows" attrs="{'invisible':[('children_allowed', '=', False)]}">
+                            <field name="workflow_ids">
+                                <tree>
+                                    <field name="base_workflow" widget="boolean_toggle" />
+                                    <field name="activity_workflow" widget="boolean_toggle" />
+                                    <field name="codename" />
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow_stages" name="Stages" attrs="{'invisible':[('stages_allowed', '=', False)]}">
+                            <field name="workflow_stage_ids">
+                                <tree>
+                                    <field name="workflow_state_id" />
+                                    <field name="codename" />
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow.workflow_states" name="States" attrs="{'invisible':[('states_allowed', '=', False)]}">
+                            <field name="workflow_state_ids">
+                                <tree>
+                                    <field name="codename" />
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow.workflow_transitions" name="Sub Workflows Transitions" attrs="{'invisible':[('sub_transitions_allowed', '=', False)]}">
+                            <field name="workflow_transition_ids">
+                                <tree>
+                                    <field name="name" />
+                                    <field name="from_workflow_id" />
+                                    <field name="to_workflow_id" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow.workflow_stage_transitions" name="Stage Transitions" attrs="{'invisible':[('stage_transitions_allowed', '=', False)]}">
+                            <field name="workflow_stage_transition_ids">
+                                <tree>
+                                    <field name="workflow_state_transition_id" />
+                                    <field name="name" />
+                                    <field name="from_workflow_stage_id" />
+                                    <field name="to_workflow_stage_id" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_search" model="ir.ui.view">
+        <field name="name">workflow.search</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <search string="Workflows">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+                <filter string="Base" name="base" domain="[('base_workflow', '=', True)]"/>
+                <filter string="Activity" name="activity" domain="[('activity_workflow', '=', True)]"/>
+                <filter string="Sub Workflow" name="sub_workflow"
+                        domain="['&amp;', ('base_workflow', '=', False), ('activity_workflow', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Workflow" name="wkfrootwkf" domain="" context="{'group_by':'root_workflow_id'}"/>
+                    <filter string="Parent Workflow" name="wkfparentwkf" domain="" context="{'group_by':'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_stage_list" model="ir.ui.view">
+        <field name="name">workflow.stage.list</field>
+        <field name="model">workflow.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow Stages">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_id" readonly="1"/>
+                <field name="workflow_state_id" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_stage_form" model="ir.ui.view">
+        <field name="name">workflow.stage.form</field>
+        <field name="model">workflow.stage</field>
+        <field name="arch" type="xml">
+            <form string="Workflow Stage">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_id" />
+                            <field name="workflow_state_id" />
+                        </group>
+                        <group>
+                            <field name="codename" />
+                            <field name="name" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.stage.required_workflow_job_ids" name="Required Jobs">
+                            <field name="required_workflow_job_ids" />
+                        </page>
+                        <page id="workflow.stage.optional_workflow_job_ids" name="Optional Jobs">
+                            <field name="optional_workflow_job_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_stage_search" model="ir.ui.view">
+        <field name="name">workflow.stage.search</field>
+        <field name="model">workflow.stage</field>
+        <field name="arch" type="xml">
+            <search string="Workflow Stages">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Workflow" name="wkfstagerootwkf" domain="" context="{'group_by':'root_workflow_id'}"/>
+                    <filter string="Workflow" name="wkfstagewkf" domain="" context="{'group_by':'workflow_id'}"/>
+                    <filter string="State" name="wkfstagestate" domain="" context="{'group_by':'workflow_state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_state_list" model="ir.ui.view">
+        <field name="name">workflow.state.list</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow States">
+                <field name="company_id" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_state_form" model="ir.ui.view">
+        <field name="name">workflow.state.form</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <form string="Workflow State">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" />
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_state_search" model="ir.ui.view">
+        <field name="name">workflow.state.search</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <search string="Workflow States">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_transition_list" model="ir.ui.view">
+        <field name="name">workflow.transition.list</field>
+        <field name="model">workflow.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow Transitions">
+                <field name="company_id" />
+                <field name="workflow_id" />
+                <field name="name" />
+                <field name="from_workflow_id" />
+                <field name="to_workflow_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_transition_form" model="ir.ui.view">
+        <field name="name">workflow.transition.form</field>
+        <field name="model">workflow.transition</field>
+        <field name="arch" type="xml">
+            <form string="Workflow Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_id" />
+                            <field name="workflow_transition_id" />
+                        </group>
+                        <group>
+                            <field name="from_workflow_id" domain="['&amp;', ('parent_id', '=', workflow_id), ('id', '!=', to_workflow_id)]" />
+                            <field name="to_workflow_id" domain="['&amp;', ('parent_id', '=', workflow_id), ('id', '!=', from_workflow_id)]" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_stage_transition_list" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.list</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow Stage Transitions">
+                <field name="company_id" />
+                <field name="workflow_id" />
+                <field name="workflow_transition_id" />
+                <field name="workflow_state_transition_id" />
+                <field name="name" />
+                <field name="from_workflow_stage_id" />
+                <field name="to_workflow_stage_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_stage_transition_form" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.form</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <form string="Workflow Stage Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_id" domain="[('activity_workflow', '=', True)]" />
+                            <field name="workflow_transition_id"
+                                   domain="['&amp;', ('from_workflow_id.activity_workflow', '=', True), ('to_workflow_id.activity_workflow', '=', True)]" />
+                            <field name="from_workflow_stage_id" />
+                            <field name="to_workflow_stage_id" />
+                            <field name="workflow_state_transition_id" />
+                        </group>
+                        <field name="workflow_allowed" invisible="1" />
+                        <field name="workflow_transition_allowed" invisible="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_state_transition_list" model="ir.ui.view">
+        <field name="name">workflow.state.transition.list</field>
+        <field name="model">workflow.state.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow State Transitions">
+                <field name="company_id" />
+                <field name="name" />
+                <field name="from_workflow_state_id" />
+                <field name="to_workflow_state_id" />
+                <field name="workflow_action_id" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_state_transition_form" model="ir.ui.view">
+        <field name="name">workflow.state.transition.form</field>
+        <field name="model">workflow.state.transition</field>
+        <field name="arch" type="xml">
+            <form string="Workflow State Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="from_workflow_state_id" />
+                            <field name="to_workflow_state_id" />
+                            <field name="workflow_action_id" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_action_list" model="ir.ui.view">
+        <field name="name">workflow.action.list</field>
+        <field name="model">workflow.action</field>
+        <field name="arch" type="xml">
+            <tree string="Actions">
+                <field name="company_id" />
+                <field name="codename" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_action_form" model="ir.ui.view">
+        <field name="name">workflow.action.form</field>
+        <field name="model">workflow.action</field>
+        <field name="arch" type="xml">
+            <form string="Action">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" />
+                            <field name="name" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_job_list" model="ir.ui.view">
+        <field name="name">workflow.job.list</field>
+        <field name="model">workflow.job</field>
+        <field name="arch" type="xml">
+            <tree string="Jobs">
+                <field name="company_id" />
+                <field name="codename" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+</odoo>

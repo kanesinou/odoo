@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="workflow_process_menu_action" model="ir.actions.act_window">
+        <field name="name">Processes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_process_list"/>
+    </record>
+    <record id="workflow_process_stage_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Stages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.stage</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_process_stage_list"/>
+    </record>
+    <record id="workflow_process_cycle_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Cycles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.cycle</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="workflow_process_transition_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Transitions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.transition</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="workflow_process_stage_transition_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Stage Transitions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.stage.transition</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <record id="workflow_process_execution_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Executions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.execution</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_workflow_process_execution_list"/>
+    </record>
+    <record id="workflowable_menu_action" model="ir.actions.act_window">
+        <field name="name">Workflowables</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflowable</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflowable_list"/>
+        <field name="context" eval="{'model':'workflowable'}"/>
+    </record>
+    <record id="workflowable_active_form_action" model="ir.actions.act_window">
+        <field name="name">Workflowable</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflowable</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflowable_main_form"/>
+    </record>
+</odoo>
