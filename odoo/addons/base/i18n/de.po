@@ -9442,7 +9442,7 @@ msgstr "Authentifizieren mit"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server__smtp_authentication_info
 msgid "Authentication Info"
-msgstr "Authentisierungsinfo"
+msgstr "Authentifizierungsinfo"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_auth_ldap
@@ -16392,6 +16392,15 @@ msgstr "Ungültiger Typ"
 #, python-format
 msgid "Invalid value for %s.%s: %s"
 msgstr "Ungültiger Wert für %s.%s: %s"
+
+#. module: base
+#. odoo-python
+#: code:addons/base/models/ir_default.py:0
+#, python-format
+msgid ""
+"Invalid value for %s.%s: %s is out of bounds (integers should be between "
+"-2,147,483,648 and 2,147,483,647)"
+msgstr ""
 
 #. module: base
 #. odoo-python
