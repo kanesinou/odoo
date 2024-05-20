@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_state_list" model="ir.ui.view">
+        <field name="name">workflow.state.list</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow States">
+                <field name="company_id" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_state_form" model="ir.ui.view">
+        <field name="name">workflow.state.form</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <form string="Workflow State">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </group>
+                    <field name="has_workflow_stages" invisible="1"/>
+                    <field name="has_procedure_stages" invisible="1"/>
+                    <field name="has_process_stages" invisible="1"/>
+                    <notebook>
+                        <page id="workflow.state.workflow_stage_ids" name="Workflow Stages" attrs="{'invisible':[('has_workflow_stages', '=', False)]}">
+                            <field name="workflow_stage_ids"/>
+                        </page>
+                        <page id="workflow.state.workflow_procedure_stage_ids" name="Procedure Stages" attrs="{'invisible':[('has_procedure_stages', '=', False)]}">
+                            <field name="workflow_procedure_stage_ids"/>
+                        </page>
+                        <page id="workflow.state.workflow_process_stage_ids" name="Process Stages" attrs="{'invisible':[('has_process_stages', '=', False)]}">
+                            <field name="workflow_process_stage_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_state_search" model="ir.ui.view">
+        <field name="name">workflow.state.search</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <search string="Workflow States">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_state_kanban" model="ir.ui.view">
+        <field name="name">workflow.state.kanban</field>
+        <field name="model">workflow.state</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="decoration_type" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.decoration_type.value">
+                                    <span>Decoration : </span>
+                                    <field name="decoration_type"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

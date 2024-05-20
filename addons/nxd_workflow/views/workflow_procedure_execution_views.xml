@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_execution_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.execution.list</field>
+        <field name="model">workflow.procedure.execution</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Executions">
+                <field name="company_id" />
+                <field name="workflow_procedure_stage_id" />
+                <field name="workflow_job_id" />
+                <field name="workflow_user_id" />
+                <field name="workflow_user_role_id" />
+                <field name="mandatory" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_execution_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.execution.form</field>
+        <field name="model">workflow.procedure.execution</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Job Execution">
+                <header>
+                    <button name="action_configure_duration"
+                            string="Configure Duration" type="object" class="oe_highlight"
+                            title="Configure the workflow procedure execution duration"
+                            attrs="{'invisible':[('is_task_execution', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="workflow_procedure_stage_id" readonly="1"/>
+                            <field name="parent_id" readonly="1"
+                                   attrs="{'invisible':[('parent_id', '=', False)]}"/>
+                            <field name="mandatory" readonly="1" widget="boolean_toggle"/>
+                            <field name="time_unit"/>
+                            <field name="min_duration" readonly="1"/>
+                            <field name="max_duration" readonly="1"/>
+                            <field name="duration_range" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="workflow_job_id" readonly="1"/>
+                            <field name="workflow_user_id"/>
+                            <field name="workflow_user_role_id"/>
+                            <field name="estimated_min_duration" readonly="1"/>
+                            <field name="estimated_max_duration" readonly="1"/>
+                            <field name="estimated_duration_range" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.execution.workflow_procedure_execution_ids" name="Sub Executions"
+                              attrs="{'invisible':[('has_sub_executions', '=', False)]}">
+                            <field name="workflow_procedure_execution_ids"/>
+                        </page>
+                        <page id="workflow.procedure.execution.substitute_workflow_user_ids" name="Substitute Users"
+                              attrs="{'invisible':[('has_substitute_users', '=', False)]}">
+                            <field name="substitute_workflow_user_ids"/>
+                        </page>
+                        <page id="workflow.procedure.execution.workflow_procedure_execution_duration_ids" name="Durations"
+                              attrs="{'invisible':[('has_durations', '=', False)]}">
+                            <field name="workflow_procedure_execution_duration_ids"/>
+                        </page>
+                        <page id="workflow.procedure.execution.workflow_process_execution_ids" name="Process Executions"
+                              attrs="{'invisible':[('has_process_executions', '=', False)]}">
+                            <field name="workflow_process_execution_ids"/>
+                        </page>
+                    </notebook>
+                    <field name="is_task_execution" invisible="1"/>
+                    <field name="has_sub_executions" invisible="1"/>
+                    <field name="has_substitute_users" invisible="1"/>
+                    <field name="has_durations" invisible="1"/>
+                    <field name="has_process_executions" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_procedure_execution_kanban" model="ir.ui.view">
+        <field name="name">workflow.procedure.execution.kanban</field>
+        <field name="model">workflow.procedure.execution</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_stage_id" optional="hide" readonly="1"/>
+                <field name="workflow_job_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_role_id" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="mandatory" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_stage_id.value">
+                                    <span>Stage : </span>
+                                    <field name="workflow_procedure_stage_id"/>
+                                </div>
+                                <div t-if="record.workflow_job_id.value">
+                                    <span>Job : </span>
+                                    <field name="workflow_job_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_id.value">
+                                    <span>User : </span>
+                                    <field name="workflow_user_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_role_id.value">
+                                    <span>Role : </span>
+                                    <field name="workflow_user_role_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom mb-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Mandatory ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="mandatory"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

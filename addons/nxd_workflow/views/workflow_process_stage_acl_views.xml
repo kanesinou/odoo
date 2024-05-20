@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_stage_acl_list" model="ir.ui.view">
+        <field name="name">workflow.process.stage.acl.list</field>
+        <field name="model">workflow.process.stage.acl</field>
+        <field name="arch" type="xml">
+            <tree string="Process Stage Access Control Lists">
+                <field name="company_id" optional="hide"/>
+                <field name="root_workflow_process_id" optional="hide"/>
+                <field name="workflow_process_stage_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_stage_acl_form" model="ir.ui.view">
+        <field name="name">workflow.process.stage.acl.form</field>
+        <field name="model">workflow.process.stage.acl</field>
+        <field name="arch" type="xml">
+            <form string="Process Stage Access Control List">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_procedure_stage_acl_id" />
+                            <field name="workflow_process_stage_id" />
+                        </group>
+                        <group>
+                            <field name="model_name" invisible="1"/>
+                            <field name="filter_domain" widget="domain" options="{'model': 'model_name'}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.process.stage.acl.access_workflow_user_ids" name="Access Granted Users" create="0" edit="0" delete="0">
+                            <field name="access_workflow_user_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.access_workflow_role_ids" name="Access Granted Roles" create="0" edit="0" delete="0">
+                            <field name="access_workflow_role_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.cancel_workflow_user_ids" name="Cancel Granted Users" create="0" edit="0" delete="0">
+                            <field name="cancel_workflow_user_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.cancel_workflow_role_ids" name="Cancel Granted Roles" create="0" edit="0" delete="0">
+                            <field name="cancel_workflow_role_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.break_workflow_user_ids" name="Break Granted Users" create="0" edit="0" delete="0">
+                            <field name="break_workflow_user_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.break_workflow_role_ids" name="Break Granted Roles" create="0" edit="0" delete="0">
+                            <field name="break_workflow_role_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.resume_workflow_user_ids" name="Resume Granted Users" create="0" edit="0" delete="0">
+                            <field name="resume_workflow_user_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.acl.resume_workflow_role_ids" name="Resume Granted Roles" create="0" edit="0" delete="0">
+                            <field name="resume_workflow_role_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_stage_acl_kanban" model="ir.ui.view">
+        <field name="name">workflow.process.stage.acl.kanban</field>
+        <field name="model">workflow.process.stage.acl</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_stage_acl_id" optional="hide" readonly="1"/>
+                <field name="workflow_process_stage_id" optional="hide" readonly="1"/>
+                <field name="model_name" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_stage_acl_id.value">
+                                    <span>Procedure Stage ACL : </span>
+                                    <field name="workflow_procedure_stage_acl_id"/>
+                                </div>
+                                <div t-if="record.workflow_process_stage_id.value">
+                                    <span>Stage : </span>
+                                    <field name="workflow_process_stage_id"/>
+                                </div>
+                                <div t-if="record.model_name.value">
+                                    <span>Model : </span>
+                                    <field name="model_name"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

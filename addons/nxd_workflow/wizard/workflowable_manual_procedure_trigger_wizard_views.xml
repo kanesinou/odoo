@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflowable_manual_procedure_trigger_wizard" model="ir.ui.view">
+        <field name="name">trigger.manual.procedures.wizard</field>
+        <field name="model">workflowable.manual.procedure.trigger.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Trigger Procedure Manually">
+                <sheet>
+                    <group>
+                        <field name="workflowable_id"/>
+                    </group>
+                    <notebook>
+                        <page id="workflowable.manual.procedure.trigger.wizard.workflow_procedure_ids" name="Procedures">
+                            <field name="workflow_procedure_ids"
+                               nolabel="1" options="{'not_delete':True}"
+                               widget="many2many_checkboxes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button type="object" name="trigger_procedures_from_wizard" class="btn btn-primary"
+                            string="TRIGGER"/>
+                    <button string="CANCEL" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

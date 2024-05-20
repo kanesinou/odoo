@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Ousseynou Kane
+# This file is distributed under the same license as the Workflow Management
+# Module package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workflow Management Module \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-11 11:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../concepts/index.rst:2
+msgid "Basic Concepts"
+msgstr "Conceptos básicos"
+
+#: ../../concepts/index.rst:5
+msgid "Workflowable Type and Workflowable"
+msgstr "Typo de Procedimientable y Procedimientable"
+
+#: ../../concepts/index.rst:7
+msgid ""
+"Management and business operations are represented by documents and "
+"contents. Every document or content type (order, invoice, etc) likely to "
+"define procedure is a \"WORKFLOWABLE TYPE\". Each instance of document or"
+" content (order XXXXX, invoice YYYYY, etc) belonging to a workflowable "
+"type is a \"WORKFLOWABLE\"."
+msgstr ""
+"Los documentos y el contenido dan forma a la gestión y las operaciones "
+"empresariales. Cada tipo de documento o contenido (orden de compra, "
+"factura, etc.) capaz de definir un procedimiento es un "
+""\“TIPO PROCEDIMIENTABLE\”. Cada documento o contenido (orden XXXXX, "
+"factura YYYYY, etc.) de un tipo procedimientable es un \“PROCEDIMIENTABLE\”."
+
+#: ../../concepts/index.rst:12
+msgid "Stage, State and Transition"
+msgstr "Etapa, Estado y Transición"
+
+#: ../../concepts/index.rst:14
+msgid ""
+"In practice, management documents(order, invoice, etc) pass through "
+"different levels of management. At each level, some work is done before "
+"moving on to the next level. For example, an invoice can be initiated and"
+" filled in an office then sent to a superior's office for review and "
+"finally sent to financial services for accounting."
+msgstr ""
+"En la práctica, los documentos(orden de compra, facturas, etc.) pasan por "
+"diferentes niveles de gestión. En cada nivel, se realiza trabajo antes "
+"de pasar al siguiente nivel. Por ejemplo, una factura puede iniciarse e "
+"ingresarse en una oficina, luego enviarse a la oficina de un superior para "
+"su revisión y finalmente enviarse a finanzas para su contabilidad."
+
+#: ../../concepts/index.rst:18
+msgid ""
+"The presence of the invoice at each of these levels(offices, services, "
+"etc) is represented by a \"STAGE\"."
+msgstr ""
+"La presencia de la factura en cada uno de estos niveles (oficina, "
+"servicios, etc.) está representada por una \“ETAPA\”."
+
+#: ../../concepts/index.rst:20
+msgid ""
+"At each level, the completion of work on the invoice is marked by a "
+"\"STATE\" which can be considered as a label placed on the document."
+msgstr ""
+"La finalización del trabajo de la factura en cada nivel está marcada por un "
+"\“ESTADO\” que puede considerarse como una etiqueta colocada en el documento."
+
+#: ../../concepts/index.rst:23
+msgid ""
+"The movement of the invoice from one level to the other is represented by"
+" a \"TRANSITION\"."
+msgstr ""
+"El paso de la factura de un nivel a un otro se representa mediante una"
+"\"TRANSICIÓN\"."
+
+#: ../../concepts/index.rst:25
+msgid ""
+"Therefore, the basis of procedure management consists of defining the "
+"different stages of work, the state displayed at the completion of each "
+"step and the movements of the document between the different levels."
+msgstr ""
+"Por tanto, la base de la gestión de procedimientos, radica en la "
+"definición de las diferentes etapas del trabajo, el \"estado\" que se "
+"muestra a la salida de cada etapa y el movimiento del documento entre los "
+"diferentes niveles."
+
+#: ../../concepts/index.rst:29
+msgid "Route"
+msgstr "Circuito"
+
+#: ../../concepts/index.rst:31
+msgid ""
+"Roughly, a set of steps with their underlying transitions represents a "
+"\"ROUTE\". Long and complex routes can be broken down into several sub-"
+"routes which can also be subdivided. The root route is characterized as "
+"\"BASE\" and the atomic route of the subdivision is qualified as "
+"\"ACTIVITY\" and constitutes the wrapper of the stages. A route which is "
+"not subdivided is therefore qualified as both a “BASE” and an “ACTIVITY”."
+msgstr ""
+"A grandes rasgos, un conjunto de etapas con las transiciones entre ellos "
+"representa un \"CIRCUITO\". Los circuitos largos y complejos se pueden "
+"dividir en varios subcircuitos que también se pueden subdividir. El "
+"circuito raíz se caracteriza como \“BASE\” y el circuito atómico de la "
+"subdivisión se califica como \“ACTIVIDAD\” y constituye la envoltura de "
+"las etapas. Por lo tanto, un circuito que no está subdividido se califica "
+"como \“BASE\” y como \“ACTIVIDAD\”."
+
+#: ../../concepts/index.rst:37
+msgid "Procedure"
+msgstr "Procedimiento"
+
+#: ../../concepts/index.rst:39
+msgid ""
+"Defining a \"PROCEDURE\" is simply stipulating that a route(validation, "
+"processing, etc.) is assigned to a workflowable type(order, invoice, "
+"etc.). In practice, this assignment may be subject to a condition."
+msgstr ""
+"La definición de \“PROCEDIMIENTO\” es simplemente el hecho de estipular que "
+"a un tipo procedimientable(orden de compra, factura, etc.) se le asigna un "
+"circuito (validación, tramitación, etc.). En la práctica, esta asignación "
+"puede estar sujeta a una condición."
+
+#: ../../concepts/index.rst:42
+msgid ""
+"For example, it may be defined in a procedures manual that invoices with "
+"a total exceeding a defined amount must take another route different to "
+"the usual one. In an advanced management logic, a procedure must define a"
+" certain number of additional parameters such as the standard duration at"
+" each step as well as access control and authorizations."
+msgstr ""
+"Por ejemplo, se puede definir en un manual de procedimientos que las "
+"facturas cuyo total supere un determinado importe deben tomar otra ruta "
+"que no sea la habitual. En la lógica de gestión avanzada, un procedimiento "
+"debe definir una determinada cantidad de parámetros adicionales, como la "
+"duración estándar de cada etapa, así como el control de acceso y las "
+"autorizaciones."
+
+#: ../../concepts/index.rst:46
+msgid ""
+"By inheriting from the taken route, a procedure can be subdivided into "
+"sub-procedures."
+msgstr ""
+"Por herencia del circuito tomado, un procedimiento puede subdividirse en "
+"subprocedimientos."
+
+#: ../../concepts/index.rst:49
+msgid "Process"
+msgstr "Proceso"
+
+#: ../../concepts/index.rst:51
+msgid ""
+"The life cycle of each document or content (order XXXXX, invoice YYYYY, "
+"etc.) whose type defines a procedure, follows the path specified by the "
+"route defined in this procedure. This life cycle specific to each "
+"document or content represents a “PROCESS” which progressively records "
+"events and data."
+msgstr ""
+"El ciclo de vida de cada documento o contenido (compra XXXXX, "
+"factura YYYYY, etc.) cuyo tipo define un procedimiento sigue el "
+"camino especificado por el circuito de ese procedimiento. Este ciclo de "
+"vida específico de cada documento o contenido representa un \“PROCESO\” "
+"que registra progresivamente eventos y datos."
+
+#: ../../concepts/index.rst:56
+msgid "Cycle"
+msgstr "Ciclo"
+
+#: ../../concepts/index.rst:58
+msgid ""
+"A set of \"BASE\" procedures can be joined to form a succession (from "
+"start to finish) of actions called \"CYCLE\"."
+msgstr ""
+"Se puede unir un conjunto de procedimientos \"BASE\" para formar una "
+"sucesión (de principio a fin) de acciones denominada \"CICLO\"."
+

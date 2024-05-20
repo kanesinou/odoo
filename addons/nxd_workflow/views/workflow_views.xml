@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_list" model="ir.ui.view">
+        <field name="name">workflow.list</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <tree string="Workflows">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="starter_workflow_id" optional="hide" readonly="1"/>
+                <field name="workflow_stage_id" optional="hide" readonly="1"/>
+                <field name="base_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="activity_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="is_ready" widget="boolean_toggle" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_inline_list" model="ir.ui.view">
+        <field name="name">workflow.inline.list</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <tree string="Workflows">
+                <field name="activity_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="is_ready" widget="boolean_toggle" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_form" model="ir.ui.view">
+        <field name="name">workflow.form</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <form string="Workflow">
+                <sheet>
+                    <div class="oe_button_box overflow-y-scroll" name="button_box" attrs="{'invisible': [('is_ready', '=', True)]}">
+                        <div class="o_field_widget o_stat_info oe_left">
+                            <field name="not_ready_reason" widget="html" nolabel="1"/>
+                        </div>
+                        <button class="oe_stat_button" icon="fa-solid fa-times">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="oe_title">Not Ready</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="base_workflow" attrs="{'readonly': ['|', '|', ('has_stages', '=', True), ('has_sub_workflows', '=', True), ('parent_id', '!=', False)]}"/>
+                            <field name="codename"/>
+                            <field name="parent_id" domain="[('activity_workflow', '=', False)]"
+                                   attrs="{'invisible': [('base_workflow', '=', True)]}"/>
+                        </group>
+                        <group>
+                            <field name="activity_workflow" attrs="{'readonly': ['|', ('has_stages', '=', True), ('has_sub_workflows', '=', True)]}"/>
+                            <field name="name" />
+                            <field name="starter_workflow_id" attrs="{'invisible': ['|', ('activity_workflow', '=', True), ('has_sub_workflows', '=', False)]}" domain="[('parent_id', '=', id)]"/>
+                            <field name="workflow_stage_id" attrs="{'invisible': ['|', ('activity_workflow', '=', False), ('has_stages', '=', False)]}" domain="[('workflow_id', '=', id)]"/>
+                        </group>
+                        <field name="is_ready" invisible="1"/>
+                        <field name="parent_allowed" invisible="1"/>
+                        <field name="children_allowed" invisible="1"/>
+                        <field name="states_allowed" invisible="1"/>
+                        <field name="stages_allowed" invisible="1"/>
+                        <field name="stage_transitions_allowed" invisible="1"/>
+                        <field name="sub_transitions_allowed" invisible="1"/>
+                        <field name="has_sub_workflows" invisible="1"/>
+                        <field name="has_procedures" invisible="1"/>
+                        <field name="has_sub_transitions" invisible="1"/>
+                        <field name="has_stages" invisible="1"/>
+                        <field name="has_stage_transitions" invisible="1"/>
+                        <field name="has_states" invisible="1"/>
+                        <field name="has_inbound_transitions" invisible="1"/>
+                        <field name="has_outbound_transitions" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page id="workflow.workflow_ids" name="Sub Workflows" attrs="{'invisible':[('children_allowed', '=', False)]}">
+                            <field name="workflow_ids"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflow_inline_list', 'form_view_ref': 'nxd_workflow.view_workflow_inline_form', 'default_parent_id':id}"/>
+                        </page>
+                        <page id="workflow_stages" name="Stages" attrs="{'invisible':[('stages_allowed', '=', False)]}">
+                            <field name="workflow_stage_ids">
+                                <tree>
+                                    <field name="workflow_state_id" />
+                                    <field name="codename" />
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow.workflow_states" name="States" attrs="{'invisible':[('states_allowed', '=', False)]}">
+                            <field name="workflow_state_ids">
+                                <tree>
+                                    <field name="codename" />
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page id="workflow.workflow_transitions" name="Sub Workflows Transitions" attrs="{'invisible':[('sub_transitions_allowed', '=', False)]}">
+                            <field name="workflow_transition_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_transition_inline_sibling_form', 'context_type': 'sibling', 'default_workflow_id': id}"/>
+                        </page>
+                        <page id="workflow.workflow_stage_transitions" name="Stage Transitions" attrs="{'invisible':[('stage_transitions_allowed', '=', False)]}">
+                            <field name="workflow_stage_transition_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_stage_transition_inline_sibling_form', 'context_type': 'sibling', 'default_workflow_id': id}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_workflow_inline_form" model="ir.ui.view">
+        <field name="name">workflow.inline.form</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <form string="Workflow">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" />
+                            <field name="parent_id" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                            <field name="activity_workflow" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_search" model="ir.ui.view">
+        <field name="name">workflow.search</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <search string="Workflows">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+                <filter string="Base" name="base" domain="[('base_workflow', '=', True)]"/>
+                <filter string="Activity" name="activity" domain="[('activity_workflow', '=', True)]"/>
+                <filter string="Sub Workflow" name="sub_workflow"
+                        domain="['&amp;', ('base_workflow', '=', False), ('activity_workflow', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Workflow" name="wkfrootwkf" domain="" context="{'group_by':'root_workflow_id'}"/>
+                    <filter string="Parent Workflow" name="wkfparentwkf" domain="" context="{'group_by':'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_kanban" model="ir.ui.view">
+        <field name="name">workflow.kanban</field>
+        <field name="model">workflow</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="starter_workflow_id" optional="hide" readonly="1"/>
+                <field name="workflow_stage_id" optional="hide" readonly="1"/>
+                <field name="base_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="activity_workflow" widget="boolean_toggle" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="is_ready" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.root_workflow_id.value">
+                                    <span>Root : </span>
+                                    <field name="root_workflow_id"/>
+                                </div>
+                                <div t-if="record.parent_id.value">
+                                    <span>Parent : </span>
+                                    <field name="parent_id"/>
+                                </div>
+                                <div t-if="record.starter_workflow_id.value">
+                                    <span>Starter Route : </span>
+                                    <field name="starter_workflow_id"/>
+                                </div>
+                                <div t-if="record.workflow_stage_id.value">
+                                    <span>Starter Stage : </span>
+                                    <field name="workflow_stage_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Base ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="base_workflow"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                        <span> Activity ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="activity_workflow"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span> Ready ? </span>
+                                        <span class="o_kanban_record_subtitle ms-2">
+                                            <field name="is_ready"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

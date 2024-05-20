@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_execution_wizard" model="ir.ui.view">
+        <field name="name">configure_workflow.process.execution.wizard</field>
+        <field name="model">workflow.process.execution.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Configure Process Execution">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_process_execution_id" readonly="1"/>
+                            <field name="execution_start_datetime"/>
+                        </group>
+                        <group>
+                            <field name="execution_user_id"/>
+                            <field name="execution_complete_datetime"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button type="object" name="create_process_execution_from_wizard" class="btn btn-primary"
+                            string="SAVE"/>
+                    <button string="CANCEL" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

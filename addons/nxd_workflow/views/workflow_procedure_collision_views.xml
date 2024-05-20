@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_collision_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.collision.list</field>
+        <field name="model">workflow.procedure.collision</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Collisions">
+                <field name="company_id" />
+                <field name="workflow_procedure_id" />
+                <field name="workflow_user_id" />
+                <field name="workflow_user_role_id" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_workflow_procedure_collision_kanban" model="ir.ui.view">
+        <field name="name">workflow.procedure.collision.kanban</field>
+        <field name="model">workflow.procedure.collision</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_role_id" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_id.value">
+                                    <span>Procedure : </span>
+                                    <field name="workflow_procedure_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_id.value">
+                                    <span>User : </span>
+                                    <field name="workflow_user_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_role_id.value">
+                                    <span>Role : </span>
+                                    <field name="workflow_user_role_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

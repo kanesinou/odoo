@@ -11,6 +11,26 @@ class WorkflowableType(models.Model):
                                                                'company !')
     ]
 
+    @api.depends('workflowable_ids')
+    def _compute_has_workflowables(self):
+        for workflowable in self:
+            workflowable.has_workflowables = len(workflowable.workflowable_ids) > 0
+
+    @api.depends('workflowable_ids')
+    def _compute_workflowables_count(self):
+        for workflowable in self:
+            workflowable.workflowables_count = len(workflowable.workflowable_ids)
+
+    @api.depends('workflow_procedure_ids')
+    def _compute_has_procedures(self):
+        for workflowable in self:
+            workflowable.has_procedures = len(workflowable.workflow_procedure_ids) > 0
+
+    @api.depends('workflow_procedure_ids')
+    def _compute_procedures_count(self):
+        for workflowable in self:
+            workflowable.procedures_count = len(workflowable.workflow_procedure_ids)
+
     name = fields.Char(string="Name", required=True, readonly=True, related="model_id.name")
     model_id = fields.Many2one('ir.model', required=True, string='Model',
                                auto_join=True, ondelete='cascade')
@@ -22,3 +42,7 @@ class WorkflowableType(models.Model):
                                  required=True, readonly=True,
                                  default=lambda self: self.env.company)
     active = fields.Boolean(default=True)
+    has_workflowables = fields.Boolean(readonly=True, compute="_compute_has_workflowables")
+    workflowables_count = fields.Integer(readonly=True, compute="_compute_workflowables_count")
+    has_procedures = fields.Boolean(readonly=True, compute="_compute_has_procedures")
+    procedures_count = fields.Integer(readonly=True, compute="_compute_procedures_count")

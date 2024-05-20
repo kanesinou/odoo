@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_stage_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.list</field>
+        <field name="model">workflow.procedure.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Stages">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_stage_id"/>
+                <field name="workflow_procedure_id"/>
+                <field name="codename"/>
+                <field name="name"/>
+                <field name="is_protected" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_stage_inline_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.inline.list</field>
+        <field name="model">workflow.procedure.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Stages">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_stage_id" optional="hide"/>
+                <field name="can_be_cancelled" widget="boolean_toggle"/>
+                <field name="cancel_action_name" optional="hide"/>
+                <field name="cancel_workflow_state_id" optional="hide"/>
+                <field name="can_be_breaked" widget="boolean_toggle"/>
+                <field name="break_action_name" optional="hide"/>
+                <field name="break_workflow_state_id" optional="hide"/>
+                <field name="can_be_resumed" widget="boolean_toggle"/>
+                <field name="resume_action_name" optional="hide"/>
+                <field name="resume_workflow_state_id" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+                <field name="is_protected" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_stage_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.form</field>
+        <field name="model">workflow.procedure.stage</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Stage">
+                <header>
+                    <button name="action_configure_duration"
+                            string="Configure Duration" type="object" class="oe_highlight"
+                            title="Configure the workflow procedure stage duration"/>
+                    <button name="action_configure_acl"
+                            string="Configure Access Control" type="object" class="oe_highlight"
+                            title="Configure the workflow procedure stage access control"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename"/>
+                            <field name="root_workflow_procedure_id" readonly="1"/>
+                            <field name="workflow_stage_id" readonly="1"/>
+                            <field name="cancel_action_name"/>
+                            <field name="break_action_name"/>
+                            <field name="resume_action_name"/>
+                            <field name="cancel_action_title"/>
+                            <field name="break_action_title"/>
+                            <field name="resume_action_title"/>
+                            <field name="time_unit"/>
+                            <field name="min_duration" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="workflow_procedure_id" readonly="1"/>
+                            <field name="workflow_state_id" readonly="1"/>
+                            <field name="cancel_workflow_state_id"/>
+                            <field name="break_workflow_state_id"/>
+                            <field name="resume_workflow_state_id"/>
+                            <field name="cancel_button_type"/>
+                            <field name="break_button_type"/>
+                            <field name="resume_button_type"/>
+                            <field name="max_duration" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.stage.workflow_procedure_stage_duration_ids" name="Durations"
+                              attrs="{'invisible': [('has_duration', '=', False)]}" create="0">
+                            <field name="workflow_procedure_stage_duration_ids"/>
+                        </page>
+                        <page id="workflow.procedure.stage.workflow_procedure_ids" name="Started Procedures"
+                              attrs="{'invisible': [('has_started_procedures', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_procedure_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.stage.workflow_procedure_execution_ids" name="Executions"
+                              attrs="{'invisible': [('has_executions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_procedure_execution_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.stage.inbound_workflow_procedure_stage_transition_ids" name="Inbound Transitions"
+                              attrs="{'invisible': [('has_inbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="inbound_workflow_procedure_stage_transition_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.stage.outbound_workflow_procedure_stage_transition_ids" name="Outbound Transitions"
+                              attrs="{'invisible': [('has_outbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="outbound_workflow_procedure_stage_transition_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.stage.workflow_process_stage_ids" name="Process Stages"
+                              attrs="{'invisible': [('has_process_stages', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_process_stage_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="has_duration" invisible="1"/>
+                    <field name="has_started_procedures" invisible="1"/>
+                    <field name="has_executions" invisible="1"/>
+                    <field name="has_inbound_transitions" invisible="1"/>
+                    <field name="has_outbound_transitions" invisible="1"/>
+                    <field name="has_process_stages" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_procedure_stage_search" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.search</field>
+        <field name="model">workflow.procedure.stage</field>
+        <field name="arch" type="xml">
+            <search string="Procedure Stages">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Procedure" name="wkfstgrootwkfproc" domain="" context="{'group_by':'root_workflow_procedure_id'}"/>
+                    <filter string="Parent Procedure" name="wkfstgwkfproc" domain="" context="{'group_by':'workflow_procedure_id'}"/>
+                    <filter string="Workflow Stage" name="wkfstgwkfstg" domain="" context="{'group_by':'workflow_stage_id'}"/>
+                    <filter string="State" name="wkfstgwkfstate" domain="" context="{'group_by':'workflow_state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_procedure_stage_kanban" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.kanban</field>
+        <field name="model">workflow.procedure.stage</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="workflow_stage_id" optional="hide" readonly="1"/>
+                <field name="workflow_state_id" optional="hide" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="can_be_cancelled" widget="boolean_toggle" readonly="1"/>
+                <field name="can_be_breaked" widget="boolean_toggle" readonly="1"/>
+                <field name="can_be_resumed" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_id.value">
+                                    <span>Procedure : </span>
+                                    <field name="workflow_procedure_id"/>
+                                </div>
+                                <div t-if="record.workflow_stage_id.value">
+                                    <span>Route Stage : </span>
+                                    <field name="workflow_stage_id"/>
+                                </div>
+                                <div t-if="record.workflow_state_id.value">
+                                    <span>State : </span>
+                                    <field name="workflow_state_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom mb-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Breakable ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="can_be_breaked"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                        <span> Resumable ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="can_be_resumed"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span> Cancellable ? </span>
+                                        <span class="o_kanban_record_subtitle ms-2">
+                                            <field name="can_be_cancelled"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

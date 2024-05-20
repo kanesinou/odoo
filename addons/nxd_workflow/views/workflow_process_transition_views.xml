@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_transition_list" model="ir.ui.view">
+        <field name="name">workflow.process.transition.list</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Process Transitions" create="0" edit="0">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_transition_id" optional="hide"/>
+                <field name="root_workflow_process_id" optional="hide"/>
+                <field name="workflow_process_cycle_id" optional="hide"/>
+                <field name="workflow_process_id" optional="hide"/>
+                <field name="workflow_process_transition_id" optional="hide"/>
+                <field name="can_return" widget="boolean_toggle" optional="hide"/>
+                <field name="name"/>
+                <field name="from_workflow_process_id"/>
+                <field name="to_workflow_process_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_transition_form" model="ir.ui.view">
+        <field name="name">workflow.process.transition.form</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <form string="Process Transition" create="0" edit="0" delete="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="from_workflow_process_id" readonly="1"/>
+                            <field name="workflow_procedure_transition_id" readonly="1"/>
+                            <field name="can_return" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="workflow_process_id" readonly="1"
+                                   attrs="{'invisible': [('workflow_process_id', '=', False)]}"/>
+                            <field name="workflow_process_transition_id" readonly="1"
+                                   attrs="{'invisible': [('workflow_process_transition_id', '=', False)]}"/>
+                            <field name="workflow_process_cycle_id" readonly="1"
+                                   attrs="{'invisible': [('workflow_process_cycle_id', '=', False)]}"/>
+                            <field name="to_workflow_process_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.process.transition.workflow_process_stage_transition_ids" name="Stage Transitions"
+                              attrs="{'invisible': [('has_stage_transitions', '=', False)]}">
+                            <field name="workflow_process_stage_transition_ids" readonly="1"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_process_transition_form'}"/>
+                        </page>
+                        <page id="workflow.process.transition.workflow_process_transition_ids" name="Process Transitions"
+                              attrs="{'invisible': [('has_process_transitions', '=', False)]}">
+                            <field name="workflow_process_transition_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="context_type" invisible="1"/>
+                    <field name="has_stage_transitions" invisible="1"/>
+                    <field name="has_process_transitions" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_process_transition_search" model="ir.ui.view">
+        <field name="name">workflow.process.transition.search</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <search string="Processes Transitions">
+                <field name="name" string="Name"/>
+                <filter string="Passage" name="passage" domain="[('context_type', '=', 'sibling')]"/>
+                <filter string="Bridge" name="bridge" domain="[('context_type', '=', 'transition')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Process" name="wkftransrootwkf" domain="" context="{'group_by':'root_workflow_process_id'}"/>
+                    <filter string="Procedure Transition" name="wkfprocesstranswkfproced" domain="" context="{'group_by':'workflow_procedure_transition_id'}"/>
+                    <filter string="Context Process" name="wkfprocesstranswkfproc" domain="" context="{'group_by':'workflow_process_id'}"/>
+                    <filter string="Context Process Transition" name="wkfprocesstranswkfproctrans" domain="" context="{'group_by':'workflow_process_transition_id'}"/>
+                    <filter string="Source Process" name="wkfprocesstransfromwkfproc" domain="" context="{'group_by':'from_workflow_process_id'}"/>
+                    <filter string="Destination Process" name="wkfprocesstranstowkfproc" domain="" context="{'group_by':'to_workflow_process_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_transition_kanban" model="ir.ui.view">
+        <field name="name">workflow.process.transition.kanban</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_process_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_transition_id" optional="hide" readonly="1"/>
+                <field name="context_type" optional="hide" readonly="1"/>
+                <field name="workflow_process_cycle_id" optional="hide" readonly="1"/>
+                <field name="workflow_process_id" optional="hide" readonly="1"/>
+                <field name="workflow_process_transition_id" optional="hide" readonly="1"/>
+                <field name="from_workflow_process_id" optional="hide" readonly="1"/>
+                <field name="to_workflow_process_id" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="can_return" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.context_type.value">
+                                    <span>Context Type : </span>
+                                    <field name="context_type"/>
+                                </div>
+                                <div t-if="record.workflow_process_cycle_id.value">
+                                    <span>Cycle : </span>
+                                    <field name="workflow_process_cycle_id"/>
+                                </div>
+                                <div t-if="record.workflow_process_id.value">
+                                    <span>Process : </span>
+                                    <field name="workflow_process_id"/>
+                                </div>
+                                <div t-if="record.workflow_process_transition_id.value">
+                                    <span>Process Transition : </span>
+                                    <field name="workflow_process_transition_id"/>
+                                </div>
+                                <div t-if="record.workflow_procedure_transition_id.value">
+                                    <span>Procedure Transition : </span>
+                                    <field name="workflow_procedure_transition_id"/>
+                                </div>
+                                <div t-if="record.from_workflow_process_id.value">
+                                    <span>From Process : </span>
+                                    <field name="from_workflow_process_id"/>
+                                </div>
+                                <div t-if="record.to_workflow_process_id.value">
+                                    <span>To Process : </span>
+                                    <field name="to_workflow_process_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Can Return ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="can_return"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_transition_pivot" model="ir.ui.view">
+        <field name="name">workflow.process.transition.pivot</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <pivot string="Process Transitions Analysis" sample="1">
+                <field name="workflow_procedure_transition_id" type="col"/>
+                <field name="transition_datetime" interval="day" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_transition_graph" model="ir.ui.view">
+        <field name="name">workflow.process.transition.graph</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <graph string="Process Transitions Analysis" sample="1">
+                <field name="workflow_procedure_transition_id"/>
+                <field name="transition_datetime" interval="month"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

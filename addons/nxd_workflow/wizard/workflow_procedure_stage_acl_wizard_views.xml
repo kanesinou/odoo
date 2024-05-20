@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_stage_acl_wizard" model="ir.ui.view">
+        <field name="name">configure_workflow.procedure.stage.acl.wizard</field>
+        <field name="model">workflow.procedure.stage.acl.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Configure Procedure Stage Access Control List">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_procedure_stage_id" readonly="1"/>
+                            <field name="model_name" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="filter_domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.stage.acl.wizard.access_workflow_user_ids" name="Access Granted Users">
+                            <field name="access_workflow_user_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_form'}"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.access_workflow_role_ids" name="Access Granted Roles">
+                            <field name="access_workflow_role_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_role_form'}"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.cancel_workflow_user_ids" name="Cancel Granted Users" attrs="{'invisible': [('access_workflow_user_ids', '=', [])]}">
+                            <field name="cancel_workflow_user_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_form'}"
+                                   domain="[('id', 'in', access_workflow_user_ids)]"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.cancel_workflow_role_ids" name="Cancel Granted Roles" attrs="{'invisible': [('access_workflow_role_ids', '=', [])]}">
+                            <field name="cancel_workflow_role_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_role_form'}"
+                                   domain="[('id', 'in', access_workflow_role_ids)]"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.break_workflow_user_ids" name="Break Granted Users" attrs="{'invisible': [('access_workflow_user_ids', '=', [])]}">
+                            <field name="break_workflow_user_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_form'}"
+                                   domain="[('id', 'in', access_workflow_user_ids)]"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.break_workflow_role_ids" name="Break Granted Roles" attrs="{'invisible': [('access_workflow_role_ids', '=', [])]}">
+                            <field name="break_workflow_role_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_role_form'}"
+                                   domain="[('id', 'in', access_workflow_role_ids)]"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.resume_workflow_user_ids" name="Resume Granted Users" attrs="{'invisible': [('access_workflow_user_ids', '=', [])]}">
+                            <field name="resume_workflow_user_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_form'}"
+                                   domain="[('id', 'in', access_workflow_user_ids)]"
+                                   nolabel="1" options="{'not_delete':True}"
+                                   widget="many2many_checkboxes"/>
+                        </page>
+                        <page id="workflow.procedure.stage.acl.wizard.resume_workflow_role_ids" name="Resume Granted Roles" attrs="{'invisible': [('access_workflow_role_ids', '=', [])]}">
+                            <field name="resume_workflow_role_ids"
+                                   context="{'form_view_ref': 'nxd_workflow.view_workflow_user_role_form'}"
+                                   domain="[('id', 'in', access_workflow_role_ids)]"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button type="object" name="create_procedure_stage_acl_from_wizard" class="btn btn-primary"
+                            string="SAVE"/>
+                    <button string="CANCEL" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

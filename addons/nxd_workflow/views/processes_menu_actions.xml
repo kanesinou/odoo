@@ -4,48 +4,78 @@
         <field name="name">Processes</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
         <field name="view_id" ref="view_workflow_process_list"/>
+        <field name="context">{'search_default_wkfwblewkfprocss': 1,'search_default_wkfrootwkfprocss': 1,'search_default_wkfparentwkfprocss': 1}</field>
     </record>
     <record id="workflow_process_stage_menu_action" model="ir.actions.act_window">
         <field name="name">Process Stages</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process.stage</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
         <field name="view_id" ref="view_workflow_process_stage_list"/>
+        <field name="context">{'search_default_wkfstgrootwkfprocess': 1,'search_default_wkfstgwkfprocess': 1,'search_default_wkfstgwkfprocstg': 1}</field>
+    </record>
+    <record id="workflow_process_stage_acl_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Stage Access Control Lists</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.stage.acl</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_process_stage_acl_list"/>
     </record>
     <record id="workflow_process_cycle_menu_action" model="ir.actions.act_window">
         <field name="name">Process Cycles</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process.cycle</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph,calendar</field>
+    </record>
+    <record id="workflow_process_cycle_stage_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Cycle Stages</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.cycle.stage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="workflow_process_cycle_stage_transition_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Cycle Stage Transitions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.cycle.stage.transition</field>
+        <field name="view_mode">tree,form</field>
     </record>
     <record id="workflow_process_transition_menu_action" model="ir.actions.act_window">
         <field name="name">Process Transitions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process.transition</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        <field name="context">{'search_default_wkftransrootwkf': 1,'search_default_wkfprocesstranswkfproc': 1,'search_default_wkfprocesstranswkfproctrans': 1}</field>
     </record>
     <record id="workflow_process_stage_transition_menu_action" model="ir.actions.act_window">
         <field name="name">Process Stage Transitions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process.stage.transition</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph</field>
+        <field name="view_id" ref="view_workflow_process_stage_transition_list"/>
+        <field name="context">{'search_default_wkfsttransrootwkfprocess': 1,'search_default_wkfsttranswkfprocess': 1,'search_default_wkfsttranswkfprocesstrans': 1}</field>
+    </record>
+    <record id="workflow_process_stage_transition_acl_menu_action" model="ir.actions.act_window">
+        <field name="name">Process Stage Transition Access Control Lists</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.process.stage.transition.acl</field>
         <field name="view_mode">tree,form,kanban</field>
     </record>
     <record id="workflow_process_execution_menu_action" model="ir.actions.act_window">
         <field name="name">Process Executions</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow.process.execution</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph,calendar</field>
         <field name="view_id" ref="view_workflow_process_execution_list"/>
     </record>
-    <record id="workflowable_menu_action" model="ir.actions.act_window">
-        <field name="name">Workflowables</field>
+    <record id="workflowable_position_menu_action" model="ir.actions.act_window">
+        <field name="name">Workflowable Positions</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">workflowable</field>
+        <field name="res_model">workflowable.position</field>
         <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="view_workflowable_list"/>
-        <field name="context" eval="{'model':'workflowable'}"/>
+        <field name="view_id" ref="view_workflowable_position_list"/>
+        <field name="context" eval="{'model':'workflowable.position'}"/>
     </record>
     <record id="workflowable_active_form_action" model="ir.actions.act_window">
         <field name="name">Workflowable</field>

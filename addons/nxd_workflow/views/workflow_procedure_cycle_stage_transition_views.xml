@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_cycle_stage_transition_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.stage.transition.list</field>
+        <field name="model">workflow.procedure.cycle.stage.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure cycle Stage Transitions">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_cycle_id" optional="hide"/>
+                <field name="from_workflow_procedure_cycle_stage_id"/>
+                <field name="to_workflow_procedure_cycle_stage_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

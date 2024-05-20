@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflowable_list" model="ir.ui.view">
+        <field name="name">workflowable.list</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <tree string="Workflowables" create="0" edit="0"
+                  action="workflowable_active_form_action">
+                <field name="company_id"/>
+                <field name="model"/>
+                <field name="name"/>
+                <field name="id" invisible="1"/>
+                <field name="workflowable_position_ids" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflowable_main_form" model="ir.ui.view">
+        <field name="name">workflowable.form</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <form string="Workflowable" js_class="nxd_workflow_form">
+                <header>
+                    <div class="oe_left">
+                        <field name="displayed_workflow_process_id"
+                               domain="[('workflowable_id', '=', active_id)]"/>
+                    </div>
+                    <div class="oe_right"
+                         attrs="{'invisible': [('manual_workflow_procedure_ids', '=', [])]}">
+                        <button name="trigger_manual_procedures" string="Trigger Procedures" class="oe_highlight" type="object"/>
+                    </div>
+                    <field name="process_buttons" readonly="1" nolabel="1"/>
+                    <field name="state" widget="statusbar" class="o_field_statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="id" invisible="1"/>
+                            <field name="workflow_process_ids" invisible="1"/>
+                            <field name="model" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflowable.process_ids" name="Processes">
+                            <field name="workflow_process_ids" readonly="1"/>
+                        </page>
+                        <page id="workflowable.position_ids" name="Positions">
+                            <field name="workflowable_position_ids" readonly="1"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflowable_position_inline_list', 'form_view_ref': 'nxd_workflow.view_workflowable_position_form', 'default_workflowable_id': active_id}"/>
+                        </page>
+                        <page id="workflowable.workflow_procedure_ids"
+                              name="Procedures" create="0" edit="0" delete="0"
+                              attrs="{'invisible': [('workflow_procedure_ids', '=', [])]}">
+                            <field name="workflow_procedure_ids" readonly="1"/>
+                        </page>
+                        <page id="workflowable.automatic_workflow_procedure_ids"
+                              name="Automatic Procedures" create="0" edit="0" delete="0"
+                              attrs="{'invisible': [('automatic_workflow_procedure_ids', '=', [])]}">
+                            <field name="automatic_workflow_procedure_ids" readonly="1"/>
+                        </page>
+                        <page id="workflowable.manual_workflow_procedure_ids"
+                              name="Manual Procedures" create="0" edit="0" delete="0"
+                              attrs="{'invisible': [('manual_workflow_procedure_ids', '=', [])]}">
+                            <field name="manual_workflow_procedure_ids" readonly="1"/>
+                        </page>
+                        <page id="workflowable.triggered_manual_workflow_procedure_ids"
+                              name="Triggered Manual Procedures" create="0" edit="0" delete="0"
+                              attrs="{'invisible': [('triggered_manual_workflow_procedure_ids', '=', [])]}">
+                            <field name="triggered_manual_workflow_procedure_ids" readonly="1"/>
+                        </page>
+                        <page id="workflowable.awaiting_manual_workflow_procedure_ids"
+                              name="Awaiting Manual Procedures" create="0" edit="0" delete="0"
+                              attrs="{'invisible': [('awaiting_manual_workflow_procedure_ids', '=', [])]}">
+                            <field name="awaiting_manual_workflow_procedure_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"></field>
+                    <field name="activity_ids" widget="mail_activity"></field>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="workflowable_search" model="ir.ui.view">
+        <field name="name">workflowable.search</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <search string="Workflowables">
+                <field name="name" string="Name"/>
+                <field name="model" string="Model"/>
+                <group expand="0" string="Group By">
+                    <filter string="Workflowable Type" name="wkfblewbletype" domain="" context="{'group_by':'workflowable_type_id'}"/>
+                    <filter string="Object ID" name="wkfbleobjid" domain="" context="{'group_by':'object_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflowable_kanban" model="ir.ui.view">
+        <field name="name">workflowable.kanban</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="model" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="model"/></span>)
+                                </h4>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_workflowable_activity" model="ir.ui.view">
+        <field name="name">workflowable.activity</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <activity string="Workflowables">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <record id="view_workflowable_pivot" model="ir.ui.view">
+        <field name="name">workflowable.pivot</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <pivot string="Workflowables Analysis" sample="1">
+                <field name="workflowable_type_id" type="col"/>
+                <field name="create_date" interval="day" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_workflowable_graph" model="ir.ui.view">
+        <field name="name">workflowable.graph</field>
+        <field name="model">workflowable</field>
+        <field name="arch" type="xml">
+            <graph string="Workflowablees Analysis" sample="1">
+                <field name="workflowable_type_id"/>
+                <field name="create_date" interval="month"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

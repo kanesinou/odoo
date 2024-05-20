@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_stage_list" model="ir.ui.view">
+        <field name="name">workflow.process.stage.list</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Process Stages" create="0" edit="0">
+                <field name="company_id" optional="hide"/>
+                <field name="root_workflow_process_id" optional="hide"/>
+                <field name="workflow_procedure_stage_id" optional="hide"/>
+                <field name="workflow_process_execution_id" optional="hide"/>
+                <field name="aborted" widget="boolean_toggle" optional="hide"/>
+                <field name="cancelled" widget="boolean_toggle" optional="hide"/>
+                <field name="breaked" widget="boolean_toggle" optional="hide"/>
+                <field name="resumed" widget="boolean_toggle" optional="hide"/>
+                <field name="can_be_resumed" widget="boolean_toggle" optional="hide"/>
+                <field name="cancel_action_name" optional="hide"/>
+                <field name="cancel_workflow_state_id" optional="hide"/>
+                <field name="break_action_name" optional="hide"/>
+                <field name="break_workflow_state_id" optional="hide"/>
+                <field name="resume_action_name" optional="hide"/>
+                <field name="resume_workflow_state_id" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+                <field name="workflow_process_id"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+                <field name="workflow_state_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_stage_form" model="ir.ui.view">
+        <field name="name">workflow.process.stage.form</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <form string="Process Stage">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_text">Time Unit : </span>
+                            <span class="o_stat_value ">
+                                <field name="time_unit"/>
+                            </span>
+                        </div>
+                        <button name="action_remaining_procedure_stages"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-hourglass-half"
+                                string="Elapsed Time">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Elapsed Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="elapsed_time" widget="statinfo" nolabel="1"/>
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('elapsed_time', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('elapsed_time', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-hourglass-end" string="Effective Duration"
+                                attrs="{'invisible': ['|', ('duration_time', '&lt;=', 0), ('is_ended', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Effective Duration</span>
+                                <span class="o_stat_value ">
+                                    <field name="duration_time" widget="statinfo" nolabel="1" />
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('duration_time', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('duration_time', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-hourglass-start" string="Remaining Minimum Time"
+                                attrs="{'invisible': [('remaining_min_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Remaining Minimum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="remaining_min_duration" widget="statinfo" nolabel="1" />
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('remaining_min_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('remaining_min_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-hourglass-start" string="Remaining Maximum Time"
+                                attrs="{'invisible': [('remaining_max_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Remaining Maximum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="remaining_max_duration" widget="statinfo" nolabel="1" />
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('remaining_max_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('remaining_max_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-clock-o" string="Exceeding Minimum Time"
+                                attrs="{'invisible': [('exceeding_min_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Exceeding Minimum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="exceeding_min_duration" widget="statinfo" nolabel="1"
+                                           decoration-danger="exceeding_min_duration &gt; 0"/>
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('exceeding_min_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('exceeding_min_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-clock-o" string="Exceeding Maximum Time"
+                                attrs="{'invisible': [('exceeding_max_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Exceeding Maximum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="exceeding_max_duration" widget="statinfo" nolabel="1"
+                                           decoration-danger="exceeding_max_duration &gt; 0"/>
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('exceeding_max_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('exceeding_max_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-clock-o" string="Exceeded Minimum Time"
+                                attrs="{'invisible': [('exceeded_min_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Exceeded Minimum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="exceeded_min_duration" widget="statinfo" nolabel="1"
+                                           decoration-danger="exceeded_min_duration &gt; 0"/>
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('exceeded_min_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('exceeded_min_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_remaining_procedure_stages" type="object" class="oe_stat_button"
+                                icon="fa-solid fa-clock-o" string="Exceeded Maximum Time"
+                                attrs="{'invisible': [('exceeded_max_duration', '&lt;=', 0)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Exceeded Maximum Time</span>
+                                <span class="o_stat_value ">
+                                    <field name="exceeded_max_duration" widget="statinfo" nolabel="1"
+                                           decoration-danger="exceeded_max_duration &gt; 0"/>
+                                    <span>&amp;nbsp;</span>
+                                    <field name="time_label" nolabel="1" attrs="{'invisible': [('exceeded_max_duration', '&gt;', 1)]}"/>
+                                    <field name="time_label_plural" nolabel="1" attrs="{'invisible': [('exceeded_max_duration', '&lt;=', 1)]}"/>
+                                </span>
+                            </div>
+                        </button>
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-play-circle"
+                                string="Tasks execution at Workflow Process Stage are awaiting"
+                                attrs="{'invisible': [('is_execution_current', '=', True)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Execution Awaiting</span>
+                            </div>
+                        </button>
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-pause-circle"
+                                string="Tasks Execution at Workflow Process Stage are in progress"
+                                attrs="{'invisible': [('is_execution_current', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Execution In Progress</span>
+                            </div>
+                        </button>
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-check-circle"
+                                string="Tasks Execution at Workflow Process Stage is completely executed"
+                                attrs="{'invisible': [('is_execution_complete', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Execution Complete</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="codename" readonly="1"/>
+                            <field name="start_datetime"
+                                   attrs="{'invisible': [('start_datetime', '=', False)]}" readonly="1"/>
+                            <field name="expected_min_start_datetime"
+                                   attrs="{'invisible': [('expected_min_start_datetime', '=', False)]}" readonly="1"/>
+                            <field name="expected_max_start_datetime"
+                                   attrs="{'invisible': [('expected_max_start_datetime', '=', False)]}"  readonly="1"/>
+                            <field name="root_workflow_process_id" readonly="1"/>
+                            <field name="workflow_procedure_stage_id" readonly="1"/>
+                            <field name="aborted" widget="boolean_toggle" readonly="1"/>
+                            <field name="cancelled" widget="boolean_toggle" readonly="1"/>
+                            <field name="can_be_resumed" widget="boolean_toggle" readonly="1"/>
+                            <field name="cancel_action_name" readonly="1"/>
+                            <field name="break_action_name" readonly="1"/>
+                            <field name="resume_action_name" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="end_datetime"
+                                   attrs="{'invisible': [('end_datetime', '=', False)]}" readonly="1"/>
+                            <field name="expected_min_end_datetime"
+                                   attrs="{'invisible': [('expected_min_end_datetime', '=', False)]}" readonly="1"/>
+                            <field name="expected_max_end_datetime"
+                                   attrs="{'invisible': [('expected_max_end_datetime', '=', False)]}" readonly="1"/>
+                            <field name="workflow_process_id" readonly="1"/>
+                            <field name="workflow_state_id" readonly="1"/>
+                            <field name="workflow_process_execution_id" readonly="1"/>
+                            <field name="breaked" widget="boolean_toggle" readonly="1"/>
+                            <field name="resumed" widget="boolean_toggle" readonly="1"/>
+                            <field name="cancel_workflow_state_id" readonly="1"/>
+                            <field name="break_workflow_state_id" readonly="1"/>
+                            <field name="resume_workflow_state_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.process.stage.workflow_process_stage_duration_ids" name="Durations"
+                              attrs="{'invisible': [('has_durations', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_process_stage_duration_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.workflow_process_ids" name="Started Processes"
+                              attrs="{'invisible': [('has_started_processes', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_process_ids" readonly="1" domain="[('id', '=', workflow_process_id)]"/>
+                        </page>
+                        <page id="workflow.process.stage.workflow_process_execution_ids" name="Executions"
+                              attrs="{'invisible': [('has_executions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_process_execution_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.inbound_workflow_process_stage_transition_ids" name="Inbound Transitions"
+                              attrs="{'invisible': [('has_inbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="inbound_workflow_process_stage_transition_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.process.stage.outbound_workflow_process_stage_transition_ids" name="Outbound Transitions"
+                              attrs="{'invisible': [('has_outbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="outbound_workflow_process_stage_transition_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="root_workflow_process_id" invisible="1"/>
+                    <field name="has_durations" invisible="1"/>
+                    <field name="has_started_processes" invisible="1"/>
+                    <field name="has_executions" invisible="1"/>
+                    <field name="has_inbound_transitions" invisible="1"/>
+                    <field name="has_outbound_transitions" invisible="1"/>
+                    <field name="is_ended" invisible="1"/>
+                    <field name="is_execution_started" invisible="1"/>
+                    <field name="is_execution_current" invisible="1"/>
+                    <field name="is_execution_complete" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_process_stage_search" model="ir.ui.view">
+        <field name="name">workflow.process.stage.search</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <search string="Process Stages">
+                <field name="codename" string="Codename"/>
+                <field name="name" string="Name"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Process" name="wkfstgrootwkfprocess" domain="" context="{'group_by':'root_workflow_process_id'}"/>
+                    <filter string="Parent Process" name="wkfstgwkfprocess" domain="" context="{'group_by':'workflow_process_id'}"/>
+                    <filter string="Procedure Stage" name="wkfstgwkfprocstg" domain="" context="{'group_by':'workflow_procedure_stage_id'}"/>
+                    <filter string="State" name="wkfstgwkfstate" domain="" context="{'group_by':'workflow_state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_stage_kanban" model="ir.ui.view">
+        <field name="name">workflow.process.stage.kanban</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_process_id" optional="hide" readonly="1"/>
+                <field name="workflow_process_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_stage_id" optional="hide" readonly="1"/>
+                <field name="workflow_state_id" optional="hide" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="cancelled" widget="boolean_toggle" readonly="1"/>
+                <field name="breaked" widget="boolean_toggle" readonly="1"/>
+                <field name="can_be_resumed" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_process_id.value">
+                                    <span>Process : </span>
+                                    <field name="workflow_process_id"/>
+                                </div>
+                                <div t-if="record.workflow_procedure_stage_id.value">
+                                    <span>Procedure Stage : </span>
+                                    <field name="workflow_procedure_stage_id"/>
+                                </div>
+                                <div t-if="record.workflow_state_id.value">
+                                    <span>State : </span>
+                                    <field name="workflow_state_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom mb-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Breakable ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="breaked"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span> Cancellable ? </span>
+                                        <span class="o_kanban_record_subtitle ms-2">
+                                            <field name="cancelled"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_stage_calendar" model="ir.ui.view">
+        <field name="name">workflow.process.stage.calendar</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <calendar date_stop="end_datetime" date_start="start_datetime" string="Process Stages" delete="0" create="0">
+                <field name="workflow_process_id"/>
+                <field name="workflow_state_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_stage_pivot" model="ir.ui.view">
+        <field name="name">workflow.process.stage.pivot</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <pivot string="Process Stages Analysis" sample="1">
+                <field name="workflow_procedure_stage_id" type="col"/>
+                <field name="start_datetime" interval="day" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_stage_graph" model="ir.ui.view">
+        <field name="name">workflow.process.stage.graph</field>
+        <field name="model">workflow.process.stage</field>
+        <field name="arch" type="xml">
+            <graph string="Process Stages Analysis" sample="1">
+                <field name="workflow_procedure_stage_id"/>
+                <field name="start_datetime" interval="month"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

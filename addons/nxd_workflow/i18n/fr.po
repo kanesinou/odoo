@@ -1,0 +1,2359 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* nxd_workflow
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-23 13:24+0000\n"
+"PO-Revision-Date: 2023-11-23 16:01+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.4.1\n"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure.py:0
+#, python-format
+msgid "%s Process Trigger"
+msgstr "%s Déclencheur de Processus"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Effective Duration</span>"
+msgstr "<span class=\"o_stat_text\">Durée Effective</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Elapsed Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps Ecoulé</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Exceeded Maximum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps maximum Dépassé</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Exceeded Minimum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps Minimum Dépassé</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Exceeding Maximum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps Maximum en Dépassement</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Exceeding Minimum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps minimum en Dépassement</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Remaining Maximum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps Maximum Restant</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Remaining Minimum Time</span>"
+msgstr "<span class=\"o_stat_text\">Temps Minimum Restant</span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span class=\"o_stat_text\">Time Unit : </span>"
+msgstr "<span class=\"o_stat_text\">Unité Temporelle : </span>"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "<span>&amp;nbsp;</span>"
+msgstr "<span>&amp;nbsp;</span>"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure_stage_transition.py:0
+#, python-format
+msgid ""
+"A procedure stage transition must occur either in a workflow procedure or a "
+"procedure transition context !"
+msgstr ""
+"Une transition d'étapes de procédure doit survenir soit au sein d'une "
+"procédure ou dans un context da transition de procédures !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_process_stage_transition.py:0
+#, python-format
+msgid ""
+"A process stage transition must occur either in a workflow process or a "
+"process transition context !"
+msgstr ""
+"Une transition d'étapes de processus doit survenir soit au sein d'un "
+"processus ou dans le context d'une transition de processus !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_process_transition.py:0
+#, python-format
+msgid ""
+"A process transition must occur either in a workflow process or a process "
+"transition context !"
+msgstr ""
+"Une transition de processus doit survenir soit au sein d'un processus ou "
+"dans un context de transition de processus !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_stage_transition.py:0
+#, python-format
+msgid ""
+"A workflow stage transition must occur either in a workflow or a workflow "
+"transition context !"
+msgstr ""
+"Une transition d'étapes d'itinéraire doit survenir soit au sein d'un "
+"itinéraire ou dans un context de transition d'itinéraires !"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__aborted
+msgid "Aborted"
+msgstr "Avorté"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_process_stage_ids
+msgid "Aborted Process Stages"
+msgstr "Etapes de Processus Avortées"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_process_execution_id
+msgid "Aborter Process Execution"
+msgstr "Exécution de Processus Avorteuse"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_state_transition.py:0
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__workflow_action_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_action_form
+#, python-format
+msgid "Action"
+msgstr "Action"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_action_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflow_actions_action_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_action_list
+msgid "Actions"
+msgstr "Actions"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__active
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__active
+msgid "Active"
+msgstr "Actif(ve)"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+msgid "Activity"
+msgstr "Activité"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__activity_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__activity_procedure
+msgid "Activity ?"
+msgstr "Activité ?"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__activity_process
+msgid "Activity Process"
+msgstr "Itinéraire Activité"
+
+#. module: nxd_workflow
+#: model_terms:ir.actions.act_window,help:nxd_workflow.workflowable_type_menu_action
+msgid "Add a new workflowable type"
+msgstr "Ajouter un nouveau type de procédurable"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__allowed_workflow_user_role_ids
+msgid "Allowed Roles"
+msgstr "Roles Autorisés"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__allowed_workflow_user_ids
+msgid "Allowed Users"
+msgstr "Utilisateurs Autorisés"
+
+#. module: nxd_workflow
+#: model_terms:ir.actions.act_window,help:nxd_workflow.workflowable_type_menu_action
+msgid ""
+"An account is part of a ledger allowing your company\n"
+"                to register all kinds of debit and credit transactions.\n"
+"                Companies present their annual accounts in two main parts: "
+"the\n"
+"                balance sheet and the income statement (profit and loss\n"
+"                account). The annual accounts of a company are required by "
+"law\n"
+"                to disclose a certain amount of information."
+msgstr ""
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__workflow_user_role_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_user_role_id
+msgid "Assigned Role"
+msgstr "Role Assigné"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__workflow_user_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_user_id
+msgid "Assigned User"
+msgstr "Utilisateur Assigné"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+msgid "Base"
+msgstr "Base"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__base_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__base_procedure
+msgid "Base ?"
+msgstr "Base ?"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__base_process
+msgid "Base Process"
+msgstr "Itinéraire de Base"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure_collision.py:0
+#, python-format
+msgid "Both the user and the role cannot be null. You must enter one of them"
+msgstr ""
+"L'utilisateur et le Role ne peuvent pas être tous les deux absents. Vous "
+"devez spécifier au moins l'un"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__can_have_sub_jobs
+msgid "Can Have Sub Jobs"
+msgstr "Peut Avoir des 'Sous' Travail"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__children_allowed
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__children_allowed
+msgid "Children Allowed"
+msgstr "Enfants Permis"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__codename
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__codename
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_state_search
+msgid "Codename"
+msgstr "Nom de code"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_collisions_action_menu
+msgid "Collisions"
+msgstr "Collisions"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__company_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__company_id
+msgid "Company"
+msgstr "Compagnie"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Configure the workflow procedure"
+msgstr "Configurer la Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__configured
+msgid "Configured"
+msgstr "Configuré(e)"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_procedure_id
+msgid "Context Procedure"
+msgstr "Procédure Contexte"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_procedure_transition_id
+msgid "Context Procedures Transition"
+msgstr "Transition de Procédures Contexte"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__workflow_process_transition_id
+msgid "Context Processes Transition"
+msgstr "Transition de Processus Contexte"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__context_type
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__context_type
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__context_type
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__context_type
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__context_type
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__context_type
+msgid "Context Type"
+msgstr "Type de Contenu"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__create_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__create_uid
+msgid "Created by"
+msgstr "Créé(e) Par"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__create_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__create_date
+msgid "Created on"
+msgstr "Créé(e) le"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__cross_border
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__cross_border
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__cross_border
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__cross_border
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__cross_border
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__cross_border
+msgid "Cross Border"
+msgstr "Transfrontalier"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__workflow_process_stage_id
+msgid "Current Stage"
+msgstr "Etape courante"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_cycles_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_process_cycles_action_menu
+msgid "Cycles"
+msgstr "Cycles"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_cycle_duration__unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_duration__unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_cycle_duration__unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_duration__unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__day
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_duration__unit__day
+msgid "Day"
+msgstr "Jour"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__display_name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__display_name
+msgid "Display Name"
+msgstr "Nom Affiché"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__displayed_workflow_process_id
+msgid "Displayed Process"
+msgstr "Processus Affiché"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__displayed_workflow_processbar
+msgid "Displayed Workflow Processbar"
+msgstr "Barre d'Avancement de Processus Affichée"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__duration_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__duration_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__duration
+msgid "Duration"
+msgstr "Durée"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_duration_ids
+msgid "Durations"
+msgstr "Durées"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_transition.py:0
+#, python-format
+msgid "Either a workflow or workflow transition must be set as context !"
+msgstr ""
+"Vous devez spécifiez comme contexte soit un itinéraire soit une transition "
+"d'itinéraires !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure_transition.py:0
+#, python-format
+msgid ""
+"Either a workflow procedure or workflow procedure transition must be set as "
+"context !"
+msgstr ""
+"Vous devez spécifier comme contexte soit une procédure soit une transition "
+"de procedures !"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__elapsed_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__elapsed_time
+msgid "Elapsed Time"
+msgstr "Temps Ecoulé"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__email
+msgid "Email"
+msgstr "Courrier Electronique"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__end_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__end_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__end_datetime
+msgid "End Datetime"
+msgstr "Date et Heure de Fin"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__exceeded_max_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__exceeded_max_time
+msgid "Exceeded Maximum Time"
+msgstr "Time Maximum Dépassé"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__exceeded_min_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__exceeded_min_time
+msgid "Exceeded Minimum Time"
+msgstr "Temps Minimum Dépassé"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__exceeding_max_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__exceeding_max_time
+msgid "Exceeding Maximum Time"
+msgstr "Temps Maximum en Dépassement"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__exceeding_min_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__exceeding_min_time
+msgid "Exceeding Minimum Time"
+msgstr "Temps Minimum en Dépassement"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__execution_datetime
+msgid "Execution Datetime"
+msgstr "Date et Heure d'Exécution"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_executions_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_process_executions_action_menu
+msgid "Executions"
+msgstr "Exécutions"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__from_workflow_id
+msgid "From  workflow"
+msgstr "De l'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__from_workflow_procedure_id
+msgid "From Procedure"
+msgstr "De la Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__from_workflow_procedure_stage_id
+msgid "From Procedure Stage"
+msgstr "De l'Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__from_workflow_process_id
+msgid "From Process"
+msgstr "Du Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__from_workflow_process_stage_id
+msgid "From Process Stage"
+msgstr "De l'Etape de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__from_workflow_stage_id
+msgid "From Workflow Stage"
+msgstr "De l'Etape d'Itinéraire"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_state_transition.py:0
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__from_workflow_state_id
+#, python-format
+msgid "From state"
+msgstr "De l'Etat"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+msgid "Group By"
+msgstr "Regrouper Par"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__res_groups_id
+msgid "Groups"
+msgstr ""
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__has_aborted_process_stages
+msgid "Has Aborted Process Stages"
+msgstr "A des Etapes de Processus Avortés"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__has_duration
+msgid "Has Duration"
+msgstr "A une Durée"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_durations
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__has_durations
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__has_durations
+msgid "Has Durations"
+msgstr "A des Durées"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__has_executions
+msgid "Has Executions"
+msgstr "A des Exécutions"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_inbound_transitions
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__has_inbound_transitions
+msgid "Has Inbound Transitions"
+msgstr "A des Transitions Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__has_max_duration
+msgid "Has Max Duration"
+msgstr "A une Durée Maximale"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__has_min_duration
+msgid "Has Min Duration"
+msgstr "A une Durée Minimale"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_outbound_transitions
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__has_outbound_transitions
+msgid "Has Outbound Transitions"
+msgstr "A des Transitions Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__has_procedure_executions
+msgid "Has Procedure Executions"
+msgstr "A des Exécutions de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__has_process_executions
+msgid "Has Process Executions"
+msgstr "A des Exécutions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_process_stage_transitions
+msgid "Has Process Stage Transitions"
+msgstr "A des Transitions d'Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_process_stages
+msgid "Has Process Stages"
+msgstr "A des Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__has_process_transitions
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__has_process_transitions
+msgid "Has Process Transitions"
+msgstr "A des Transitions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__has_processes
+msgid "Has Processes"
+msgstr "A des Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__has_stage_transitions
+msgid "Has Stage Transitions"
+msgstr "A des Transitions d'Etapes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__has_started_processes
+msgid "Has Started Processes"
+msgstr "A des Processus Démarrés"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_sub_process_transitions
+msgid "Has Sub Process Transitions"
+msgstr "A des Transitions de Sous Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__has_sub_processes
+msgid "Has Sub Processes"
+msgstr "A des Sous Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__has_sub_workflow_jobs
+msgid "Has Sub Workflow Jobs"
+msgstr "A des 'Sous' Travaux"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__has_tasks
+msgid "Has Tasks"
+msgstr "A des Tâches"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_cycle_duration__unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_duration__unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_cycle_duration__unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_duration__unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__hour
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_duration__unit__hour
+msgid "Hour"
+msgstr "Heure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__inbound_workflow_procedure_stage_transition_ids
+msgid "Inbound Procedure Stage Transitions"
+msgstr "Transitions d'Etapes de Procédure Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__inbound_workflow_procedure_transition_ids
+msgid "Inbound Procedure Transitions"
+msgstr "Transitions de Procédures Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__inbound_workflow_process_stage_transition_ids
+msgid "Inbound Process Stage Transitions"
+msgstr "Transitions d'Etapes de Processus Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__inbound_workflow_process_transition_ids
+msgid "Inbound Process Transitions"
+msgstr "Transitions de Processus Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__inbound_workflow_stage_transition_ids
+msgid "Inbound Stage Transitions"
+msgstr "Transitions d'Etapes Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__inbound_workflow_state_transition_ids
+msgid "Inbound Workflow State Transition"
+msgstr "Transitions d'Etats Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__inbound_workflow_transition_ids
+msgid "Inbound Workflow Transitions"
+msgstr "Transitions d'Itinéraires Entrantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__is_multi_processed
+msgid "Is Multi Processed"
+msgstr "Suit de Multiples Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__is_processed
+msgid "Is Processed"
+msgstr "Suit un Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__is_root_workflow_job
+msgid "Is Root Workflow Job"
+msgstr "Est ce un Travail Racine"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__is_task
+msgid "Is Task ?"
+msgstr "Est ce une Tâche ?"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_job_form
+msgid "Job"
+msgstr "Travail"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_job_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflow_jobs_action_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_job_list
+msgid "Jobs"
+msgstr "Travaux"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position____last_update
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification Le"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__write_uid
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__write_uid
+msgid "Last Updated by"
+msgstr "Dernière Mise à Jour Par"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__write_date
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__write_date
+msgid "Last Updated on"
+msgstr "Dernière Mise à Jour Le"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__mandatory
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__mandatory
+msgid "Mandatory"
+msgstr "Obligatoire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__max_duration
+msgid "Max Duration"
+msgstr "Durée Maximale"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__maximum
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__maximum
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__maximum
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__maximum
+msgid "Maximum"
+msgstr "Maximum"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__max_duration
+msgid "Maximum scheduled duration"
+msgstr "Durée Maximale Prévue"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__min_duration
+msgid "Min Duration"
+msgstr "Durée Minimale"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__minimum
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__minimum
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__minimum
+msgid "Minimum"
+msgstr "Minimum"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__min_duration
+msgid "Minimum scheduled duration"
+msgstr "Durée Minimale Prévue"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_cycle_duration__unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_duration__unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_cycle_duration__unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_duration__unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__minute
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_duration__unit__minute
+msgid "Minute"
+msgstr "Minute"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflowable_type_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__model
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__model_id
+msgid "Model"
+msgstr "Modèle"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_cycle_duration__unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_duration__unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_cycle_duration__unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_duration__unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__month
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_duration__unit__month
+msgid "Month"
+msgstr "Mois"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__name
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__name
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_state_search
+msgid "Name"
+msgstr "Nom"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__state__new
+msgid "New"
+msgstr "Nouveau"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__new_procedure
+msgid "New Procedure"
+msgstr "Nouvelle Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__object_id
+msgid "Object Id"
+msgstr "Id d'Objet"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__optional_workflow_job_ids
+msgid "Optional Jobs"
+msgstr "Travaux Optionels"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__outbound_workflow_procedure_stage_transition_ids
+msgid "Outbound Procedure Stage Transitions"
+msgstr "Transitions d'Etapes de Procédure Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__outbound_workflow_procedure_transition_ids
+msgid "Outbound Procedure Transitions"
+msgstr "Transitions de Procédures Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__outbound_workflow_process_stage_transition_ids
+msgid "Outbound Process Stage Transitions"
+msgstr "Transitions d'Etapes de Processus Sortants"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__outbound_workflow_process_transition_ids
+msgid "Outbound Process Transitions"
+msgstr "Transitions de Processus Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__outbound_workflow_stage_transition_ids
+msgid "Outbound Stage Transitions"
+msgstr "Transitions d'Etapes Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__outbound_workflow_state_transition_ids
+msgid "Outbound Workflow State Transition"
+msgstr "Transitions d'Etats Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__outbound_workflow_transition_ids
+msgid "Outbound Workflow Transitions"
+msgstr "Transitions d'Itinéraires Sortantes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__parent_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__parent_id
+msgid "Parent"
+msgstr "Parent"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__parent_allowed
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__parent_allowed
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__parent_allowed
+msgid "Parent Allowed"
+msgstr "Parent Permis"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__parent_id
+msgid "Parent Job"
+msgstr "Travail Parent"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+msgid "Parent Procedure"
+msgstr "Procédure Parent"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__parent_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+msgid "Parent Workflow"
+msgstr "Itinéraire Parent"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__workflowable_position_ids
+msgid "Positions"
+msgstr "Positions"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__workflow_procedure_cycle_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__workflow_procedure_stage_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_procedure_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Procedure"
+msgstr "Procédure"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_collision_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_collision_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__workflow_procedure_collision_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__workflow_procedure_collision_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_collision_list
+msgid "Procedure Collisions"
+msgstr "Collisions de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__workflow_procedure_cycle_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_cycle_form
+msgid "Procedure Cycle"
+msgstr "Cycle de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_cycle_menu_action
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_cycle_list
+msgid "Procedure Cycles"
+msgstr "Cycles Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_procedure_execution_id
+msgid "Procedure Execution"
+msgstr "Exécution de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_execution_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_procedure_execution_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__workflow_procedure_execution_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__workflow_procedure_execution_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_execution_list
+msgid "Procedure Executions"
+msgstr "Exécutions de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__procedure_executions_count
+msgid "Procedure Executions Count"
+msgstr "Nombre d'Exécutions de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__workflow_procedure_stage_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_procedure_stage_id
+msgid "Procedure Stage"
+msgstr "Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_stage_transition_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_procedure_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_procedure_stage_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_stage_transition_list
+msgid "Procedure Stage Transitions"
+msgstr "Transition d'Etapes de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_stage_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__workflow_procedure_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__workflow_procedure_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__workflow_procedure_stage_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_stage_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+msgid "Procedure Stages"
+msgstr "Etapes de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__workflow_procedure_transition_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__workflow_procedure_transition_id
+msgid "Procedure Transition"
+msgstr "Transition de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_transition_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_procedure_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__workflow_process_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_transition_list
+msgid "Procedure Transitions"
+msgstr "Transitions de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__procedure_transitions_allowed
+msgid "Procedure Transitions Allowed"
+msgstr "Transitions de Procédures Permises"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_procedure_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_procedure_ids
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedures_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedures_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+msgid "Procedures"
+msgstr "Procédures"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_transitions_action_menu
+msgid "Procedures Transitions"
+msgstr "Transitions de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__workflow_process_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_form
+msgid "Process"
+msgstr "Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__workflow_process_cycle_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_cycle_form
+msgid "Process Cycle"
+msgstr "Cycle de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__workflow_process_cycle_duration_ids
+msgid "Process Cycle Durations"
+msgstr "Durées De Cycle de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_cycle_menu_action
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_cycle_list
+msgid "Process Cycles"
+msgstr "Cycles de Processus"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_execution_form
+msgid "Process Execution"
+msgstr "Exécution de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_execution_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__workflow_process_execution_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_process_execution_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__workflow_process_execution_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user_role__workflow_process_execution_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_execution_list
+msgid "Process Executions"
+msgstr "Exécutions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__process_executions_count
+msgid "Process Executions Count"
+msgstr "Nombre d'Exécutions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_process_stage_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__workflow_process_stage_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_form
+msgid "Process Stage"
+msgstr "Etape de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_process_stage_duration_ids
+msgid "Process Stage Durations"
+msgstr "Durées d'Etapes Processus"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_transition_form
+msgid "Process Stage Transition"
+msgstr "Transition d'Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_stage_transition_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__workflow_process_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__workflow_process_stage_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_transition_list
+msgid "Process Stage Transitions"
+msgstr "Transitions d'Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_stage_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_process_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__workflow_process_stage_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_stage_list
+msgid "Process Stages"
+msgstr "Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__workflow_process_transition_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_transition_form
+msgid "Process Transition"
+msgstr "Transition de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_transition_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_process_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__workflow_process_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_transition_list
+msgid "Process Transitions"
+msgstr "Transitions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_duration_ids
+msgid "Process durations"
+msgstr "Durées de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__workflow_process_execution_ids
+msgid "Process executions"
+msgstr "Exécutions de Processus"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_process_menu_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_process_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__workflow_process_ids
+#: model:ir.ui.menu,name:nxd_workflow.workflow_processes_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_processes_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_process_list
+msgid "Processes"
+msgstr "Processus"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_process_transitions_action_menu
+msgid "Processes Transitions"
+msgstr "Transition de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__quarter
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__quarter
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__quarter
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__quarter
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__quarter
+msgid "Quarter"
+msgstr "Trimestre"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Release"
+msgstr "Lancer"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__release_allowed
+msgid "Release Allowed"
+msgstr "Lancement Permis"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Release the workflow procedure"
+msgstr "Lancer la Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__state__released
+msgid "Released"
+msgstr "Lancé(e)"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__released
+msgid "Released ?"
+msgstr "Lancé(e) ?"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__remaining_max_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__remaining_max_time
+msgid "Remaining Maximum Time"
+msgstr "Temps Maximum Restant"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__remaining_min_time
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__remaining_min_time
+msgid "Remaining Minimum Time"
+msgstr "Temps Minimum Restant"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__required_workflow_job_ids
+msgid "Required Jobs"
+msgstr "Travaux Obligatoires"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_user_roles_action_menu
+msgid "Roles"
+msgstr "Roles"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__root_workflow_job_id
+msgid "Root Job"
+msgstr "Travail Racine"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__root_workflow_procedure_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__root_workflow_procedure_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+msgid "Root Procedure"
+msgstr "Procédure Racine"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__root_workflow_process_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__root_workflow_process_id
+msgid "Root Process"
+msgstr "Processus Racine"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__root_workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__root_workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__root_workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__root_workflow_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+msgid "Root Workflow"
+msgstr "Itinéraire Racine"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_stage_transition_menu_action
+msgid "Route Stage Transitions"
+msgstr "Transition d'Etapes d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_stage_menu_action
+msgid "Route Stages"
+msgstr "Etapes d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_state_transition_menu_action
+msgid "Route State Transitions"
+msgstr "Transition d'Etats d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_state_menu_action
+msgid "Route States"
+msgstr "Etats d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_transition_menu_action
+msgid "Route Transitions"
+msgstr "Transitions d'Itinitéraire"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflows_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflows_menu
+msgid "Routes"
+msgstr "Itinéraires"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_transitions_action_menu
+msgid "Routes Transitions"
+msgstr "Transitions d'Itinéraires"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__scheduled
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__scheduled
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__scheduled
+msgid "Scheduled"
+msgstr "Prévu(e)"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__scheduled_max_end_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__scheduled_max_end_datetime
+msgid "Scheduled Maximum End Datetime"
+msgstr "Date et Heure de Fin Maximum Prévue"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__scheduled_min_end_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__scheduled_min_end_datetime
+msgid "Scheduled Minimum End Datetime"
+msgstr "Date et Heure de Minimum Prévue"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_transition__context_type__sibling
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_transition__context_type__sibling
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_transition__context_type__sibling
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_transition__context_type__sibling
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_stage_transition__context_type__sibling
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_transition__context_type__sibling
+msgid "Sibling"
+msgstr "Soeur"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__stage_transitions_allowed
+msgid "Stage Transitions Allowed"
+msgstr "Transitions d'Etapes Permises"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_stages_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_process_stages_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_stages_action_menu
+msgid "Stages"
+msgstr "Etapes"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__stages_allowed
+msgid "Stages Allowed"
+msgstr "Etapes Permises"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_procedure_stage_transitions_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_process_stage_transitions_action_menu
+#: model:ir.ui.menu,name:nxd_workflow.workflow_stage_transition_action_menu
+msgid "Stages Transitions"
+msgstr "Transitions d'Etapes"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Start Configuration"
+msgstr "Démarrer la Configuration"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__start_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle__start_datetime
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__start_datetime
+msgid "Start Datetime"
+msgstr "Date et Heure de Démarrage"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_procedure_ids
+msgid "Started Procedures"
+msgstr "Procédures Démarrées"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_process_ids
+msgid "Started Processes"
+msgstr "Processus Démarrés"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__starter_workflow_procedure_id
+msgid "Starter Procedure"
+msgstr "Procédure Initiatrice"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__starter_workflow_process_id
+msgid "Starter Process"
+msgstr "Processus Intiateur"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_stage_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_stage_id
+msgid "Starter Stage"
+msgstr "Etape Initiatrice"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__starter_stage_allowed
+msgid "Starter Stage Allowed"
+msgstr "Etape Initiatrice Permise"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__state
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_state_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__workflow_state_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__workflow_state_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__state
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+msgid "State"
+msgstr "Etat"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_action__workflow_state_transition_ids
+msgid "State Transitions"
+msgstr "Transitions d'Etats"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_state_ids
+#: model:ir.ui.menu,name:nxd_workflow.workflow_states_action_menu
+msgid "States"
+msgstr "Etats"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__states_allowed
+msgid "States Allowed"
+msgstr "Etats Permis"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_state_transition_action_menu
+msgid "States Transitions"
+msgstr "Transitions d'Etats"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__workflow_job_ids
+msgid "Sub Jobs"
+msgstr "'Sous' Travaux"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_search
+msgid "Sub Procedure"
+msgstr "Sous Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_procedure_ids
+msgid "Sub Procedures"
+msgstr "Sous Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__sub_transitions_allowed
+msgid "Sub Transitions Allowed"
+msgstr "Sous Transitions Permises"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+msgid "Sub Workflow"
+msgstr "Sous Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__sub_workflow_jobs_count
+msgid "Sub Workflow Jobs Count"
+msgstr "Nombre de 'Sous' Travaux"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflow_process_ids
+msgid "Sub processes"
+msgstr "Sous Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_ids
+msgid "Sub workflows"
+msgstr "Sous Itinéraires"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,help:nxd_workflow.field_workflow_job__is_task
+msgid ""
+"Task is the lowest level of subdivision of a job. \n"
+"                             Hence, tasks cannot be subdivided in sub jobs."
+msgstr ""
+"La Tâche est le niveau de subdivision le plus profond d'un travail. \n"
+"                             Par conséquent, les tâches ne peuvent pas être "
+"subdivisées en 'sous' travaux."
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__tasks_count
+msgid "Tasks Count"
+msgstr "Nombre de Tâches"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_stage_codename_company_uniq
+msgid "The codename must be unique per workflow and per company !"
+msgstr "Le nom de code doit être unique par itinéraire et par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_procedure_stage_codename_company_uniq
+msgid "The codename must be unique per workflow procedure and per company !"
+msgstr "Le nom de code doit être unique par procédure et par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_process_stage_codename_company_uniq
+msgid "The codename must be unique per workflow process and per company !"
+msgstr "Le nom de code doit être unique par processus et pa compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_action_codename_company_uniq
+msgid "The codename of the workflow action must be unique per company !"
+msgstr ""
+"Le nom de code de l'action d'itinéraire doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_job_codename_company_uniq
+msgid "The codename of the workflow job must be unique per company !"
+msgstr ""
+"Le nom de code du travail d'itinéraire doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_codename_company_uniq
+msgid "The codename of the workflow must be unique per company !"
+msgstr "Le nom de code d'itinéraire doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_procedure_cycle_codename_company_uniq
+msgid ""
+"The codename of the workflow procedure cycle must be unique per company !"
+msgstr ""
+"Le nom de code du cycle de procédures doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_procedure_codename_company_uniq
+msgid "The codename of the workflow procedure must be unique per company !"
+msgstr "Le nom de code de la procédure doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_process_codename_company_uniq
+msgid "The codename of the workflow process must be unique per company !"
+msgstr "Le nom de code du processus doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_state_codename_company_uniq
+msgid "The codename of the workflow state must be unique per company !"
+msgstr ""
+"Le nom de code de l'état d'itinéraire doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_stage_transition.py:0
+#, python-format
+msgid ""
+"The context of a workflow stage transition must be either an activity "
+"workflow or a transition between two activity workflows !"
+msgstr ""
+"Le contexte d'une transition d'étapes d'itinéraire doit être soit une "
+"activité d'itinéraire, soit une transition entre deux activités "
+"d'itinéraire !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure_transition.py:0
+#, python-format
+msgid ""
+"The context of the procedure transition must be unique. Set either a "
+"workflow procedure or workflow procedure transition, not both !"
+msgstr ""
+"Le contexte d'une transition de procédure doit être unique. Veuillez "
+"spécifier soit une procédure soit une transition de procédures, pas les "
+"deux à la fois !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_stage_transition.py:0
+#: code:addons/nxd_workflow/models/workflow_transition.py:0
+#, python-format
+msgid ""
+"The context of the transition must be unique. Set either a workflow or "
+"workflow transition, not both !"
+msgstr ""
+"Le contexte d'une transition d'itinéraires doit être unique. Veuillez "
+"spécifier soit un itinéraire soit une transition d'itinéraires, pas les "
+"deux à la fois !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_procedure_stage_transition.py:0
+#, python-format
+msgid ""
+"The context of the transition must be unique. Set either a workflow "
+"procedure or workflow procedure transition, not both !"
+msgstr ""
+"Le contexte d'une transition de procédure doit être unique. Veuillez "
+"spécifier soit une procédure soit une transition de procédures, pas les "
+"deux à la fois !"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_process_stage_transition.py:0
+#: code:addons/nxd_workflow/models/workflow_process_transition.py:0
+#, python-format
+msgid ""
+"The context of the transition must be unique. Set either a workflow process "
+"or workflow process transition, not both !"
+msgstr ""
+"Le contexte d'une transition de processus doit être unique. Veuillez "
+"spécifier soit un processus soit une transition de processus, pas les deux "
+"à la fois !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflow_state_transition_from_to_company_uniq
+msgid ""
+"The from and to states of the workflow state transition must be unique per "
+"company !"
+msgstr ""
+"Les états d'origine et d'arrivée d'une transition d'états doivent être "
+"uniques par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflowable_type_model_company_uniq
+msgid "The model of the workflowable type must be unique per company !"
+msgstr "Le modèle du type de procédurable doit être unique par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,help:nxd_workflow.field_workflow_job__workflow_procedure_execution_ids
+msgid ""
+"The procedures where defining the execution of the \n"
+"                                                       job/task."
+msgstr ""
+"Les procédures où l'exécution de travail/tâche est \n"
+"                                                       définie."
+
+#. module: nxd_workflow
+#: model:ir.model.fields,help:nxd_workflow.field_workflow_job__workflow_process_execution_ids
+msgid "The processes where the job/task is executed."
+msgstr "Les processus où la travail/tâche est exécuté."
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflowable_reference_company_uniq
+msgid ""
+"The reference(model + primary key) of the workflowable must be unique per "
+"company !"
+msgstr ""
+"La référence(modèle + clé primaire) du type de procédurable doit être "
+"unique !"
+
+#. module: nxd_workflow
+#: model:ir.model.constraint,message:nxd_workflow.constraint_workflowable_position_position_company_uniq
+msgid "The workflowable must be unique per workflow process and per company !"
+msgstr "Le procédurable doit être unique par processus et par compagnie !"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__time_label
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__time_label
+msgid "Time Label"
+msgstr "Intitulé Temporel"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__time_label_plural
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__time_label_plural
+msgid "Time Label Plural"
+msgstr "Intitulé Temporel au Pluriel"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage__time_unit
+msgid "Time Unit"
+msgstr "Unité Temporelle"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__to_workflow_id
+msgid "To  workflow"
+msgstr "Vers l'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__to_workflow_procedure_id
+msgid "To Procedure"
+msgstr "Vers la Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__to_workflow_procedure_stage_id
+msgid "To Procedure Stage"
+msgstr "Vers l'Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__workflow_procedure_stage_transition_id
+msgid "To Procedure Stage Transition"
+msgstr "Vers la Transition d'Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_transition__to_workflow_process_id
+msgid "To Process"
+msgstr "Vers le Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__to_workflow_process_stage_id
+msgid "To Process Stage"
+msgstr "Vers l'Etape de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__to_workflow_stage_id
+msgid "To Workflow Stage"
+msgstr "Vers l'Etape d'Itinéraire"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_state_transition.py:0
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__to_workflow_state_id
+#, python-format
+msgid "To state"
+msgstr "Vers l'Etat"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_transition__context_type__transition
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_transition__context_type__transition
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_transition__context_type__transition
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_transition__context_type__transition
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_stage_transition__context_type__transition
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_transition__context_type__transition
+msgid "Transition"
+msgstr "Transition"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_transition__transition_datetime
+msgid "Transition Datetime"
+msgstr "Date et Heure de Transition"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__workflowable_type_id
+msgid "Type"
+msgstr "Type"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__time_unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle_duration__unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_duration__unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__time_unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_duration__unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__time_unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_cycle_duration__unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_duration__unit
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_stage_duration__unit
+msgid "Unit"
+msgstr "Unité"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Unrelease"
+msgstr "Rappeler"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_procedure_form
+msgid "Unrelease the workflow procedure"
+msgstr "Rappeler la procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__state__unreleased
+msgid "Unreleased"
+msgstr "Rappelé(e)"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__workflow_user_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_user__res_users_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_user_form
+msgid "User"
+msgstr "Utilisateur"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_collision__workflow_user_role_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_user_role_form
+msgid "User Role"
+msgstr "Role d'Utilisateur"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_user_role_menu_action
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_user_role_list
+msgid "User Roles"
+msgstr "Roles d'Utilisateurs"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflow_user_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflow_users_action_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_user_list
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_cycle_duration__unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_duration__unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_cycle_duration__unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_duration__unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__week
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage_duration__unit__week
+msgid "Week"
+msgstr "Semaine"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure__workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage__workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+msgid "Workflow"
+msgstr "Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_action
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_action_id
+msgid "Workflow Action"
+msgstr "Action d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_allowed
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_allowed
+msgid "Workflow Allowed"
+msgstr "Itinéraire Permis"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_job
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_execution__workflow_job_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process_execution__workflow_job_id
+msgid "Workflow Job"
+msgstr "Travail d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__workflow_procedure_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__workflow_procedure_ids
+msgid "Workflow Procedure"
+msgstr "Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_collision
+msgid "Workflow Procedure Collision"
+msgstr "Collision sur Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_cycle
+msgid "Workflow Procedure Cycle"
+msgstr "Cycle de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_cycle_duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__workflow_procedure_cycle_duration_ids
+msgid "Workflow Procedure Cycle Duration"
+msgstr "Durée de Cycle de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_duration
+msgid "Workflow Procedure Duration"
+msgstr "Durée de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_execution
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__workflow_procedure_execution_ids
+msgid "Workflow Procedure Execution"
+msgstr "Exécution de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_stage
+msgid "Workflow Procedure Stage"
+msgstr "Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_stage_duration
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_procedure_stage_duration_ids
+msgid "Workflow Procedure Stage Duration"
+msgstr "Durée d'Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_stage_transition
+msgid "Workflow Procedure Stage Transition"
+msgstr "Transition d'Etape de Procédure"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__workflow_procedure_transition_ids
+msgid "Workflow Procedure Transition"
+msgstr "Transition de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_procedure_transition_ids
+msgid "Workflow Procedure Transitions"
+msgstr "Transitions de Procédures"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable__workflow_process_ids
+msgid "Workflow Process"
+msgstr "Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_cycle
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_cycle__workflow_process_cycle_ids
+msgid "Workflow Process Cycle"
+msgstr "Cycle de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_duration
+msgid "Workflow Process Duration"
+msgstr "Durée de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_execution
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_job__workflow_process_execution_ids
+msgid "Workflow Process Execution"
+msgstr "Exécution de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_stage
+msgid "Workflow Process Stage"
+msgstr "Etape de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_stage_transition
+msgid "Workflow Process Stage Transition"
+msgstr "Transition d'Etapes de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_transition
+msgid "Workflow Process Transition"
+msgstr "Transition de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_cycle_duration
+msgid "Workflow Process cycle Duration"
+msgstr "Durée de Cycle de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_process_stage_duration
+msgid "Workflow Process stage Duration"
+msgstr "Durée d'Etape de Processus"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_stage
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage__workflow_stage_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_stage_form
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_procedure_stage_search
+msgid "Workflow Stage"
+msgstr "Etape d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_stage_transition
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_stage_transition__workflow_stage_transition_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_stage_transition_form
+msgid "Workflow Stage Transition"
+msgstr "Transition d'Etapes d'Itinéraire"
+
+#. module: nxd_workflow
+#. odoo-python
+#: code:addons/nxd_workflow/models/workflow_state_transition.py:0
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state_transition__workflow_stage_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_stage_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_stage_transition_list
+#, python-format
+msgid "Workflow Stage Transitions"
+msgstr "Transitions d'Etapes d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_stage_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_state__workflow_stage_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_stage_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_stage_search
+msgid "Workflow Stages"
+msgstr "Etapes d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_state
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_state_form
+msgid "Workflow State"
+msgstr "Etat"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_state_transition
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_state_transition_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_state_transition_form
+msgid "Workflow State Transition"
+msgstr "Transition d'Etats"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_state_transition_list
+msgid "Workflow State Transitions"
+msgstr "Transitions d'Etats"
+
+#. module: nxd_workflow
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_state_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_state_search
+msgid "Workflow States"
+msgstr "Etats"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_transition
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_procedure_transition__workflow_transition_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_transition_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_transition_id
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_transition_form
+msgid "Workflow Transition"
+msgstr "Transition d'Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_stage_transition__workflow_transition_allowed
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_transition_allowed
+msgid "Workflow Transition Allowed"
+msgstr "Transition d'Itinéraire Permise"
+
+#. module: nxd_workflow
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow__workflow_transition_ids
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_transition__workflow_transition_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_transition_list
+msgid "Workflow Transitions"
+msgstr "Transitions d'Itinéraires"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_user
+msgid "Workflow User"
+msgstr "Utilisateur"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_user_role
+msgid "Workflow User Role"
+msgstr "Role d'Utilisateur"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflow_procedure_transition
+msgid "WorkflowProcedureTransition"
+msgstr "WorkflowProcedureTransition"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflowable_active_form_action
+#: model:ir.model,name:nxd_workflow.model_workflowable
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflow_process__workflowable_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_position__workflowable_id
+#: model:ir.model.fields,field_description:nxd_workflow.field_workflowable_type__workflowable_ids
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_main_form
+msgid "Workflowable"
+msgstr "Workflowable"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflowable_position
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_position_form
+msgid "Workflowable Position"
+msgstr "Position de Procédurable"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflowable_act_window_positions_tree
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_position_inline_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_position_list
+msgid "Workflowable Positions"
+msgstr "Positions de Procédurables"
+
+#. module: nxd_workflow
+#: model:ir.model,name:nxd_workflow.model_workflowable_type
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_type_form
+msgid "Workflowable Type"
+msgstr "Type de Procédurable"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflowable_type_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflowable_types_action_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_type_list
+msgid "Workflowable Types"
+msgstr "Types de Procédurables"
+
+#. module: nxd_workflow
+#: model:ir.actions.act_window,name:nxd_workflow.workflowable_menu_action
+#: model:ir.ui.menu,name:nxd_workflow.workflowables_action_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflowable_list
+msgid "Workflowables"
+msgstr "Procédurable"
+
+#. module: nxd_workflow
+#: model:ir.ui.menu,name:nxd_workflow.workflow_root_menu
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.view_workflow_list
+#: model_terms:ir.ui.view,arch_db:nxd_workflow.workflow_search
+msgid "Workflows"
+msgstr "Itinéraire"
+
+#. module: nxd_workflow
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure__time_unit__year
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage__time_unit__year
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_procedure_stage_duration__unit__year
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process__time_unit__year
+#: model:ir.model.fields.selection,name:nxd_workflow.selection__workflow_process_stage__time_unit__year
+msgid "Year"
+msgstr "Année"

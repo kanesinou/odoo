@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_stage_transition_list" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.list</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Workflow Stage Transitions">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_id" optional="hide" readonly="1"/>
+                <field name="context_type" optional="hide" readonly="1"/>
+                <field name="workflow_id" optional="hide" readonly="1"/>
+                <field name="workflow_transition_id" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="from_workflow_stage_id" readonly="1"/>
+                <field name="to_workflow_stage_id" readonly="1"/>
+                <field name="can_return" widget="boolean_toggle" readonly="1"/>
+                <field name="return_action_name" optional="hide" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_stage_transition_form" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.form</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <form string="Workflow Stage Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_id" domain="[('id', 'in', workflow_domain)]" attrs="{'readonly': [('workflow_transition_id', '!=', False)]}"/>
+                            <field name="from_workflow_stage_id" domain="[('id', 'in', from_workflow_stage_domain)]"/>
+                            <field name="action_name"/>
+                            <field name="button_type" widget="selection"/>
+                            <field name="can_return" widget="boolean_toggle"/>
+                        </group>
+                        <group>
+                            <field name="workflow_transition_id" domain="[('id', 'in', workflow_transition_domain)]" attrs="{'readonly': [('workflow_id', '!=', False)]}"/>
+                            <field name="to_workflow_stage_id" domain="[('id', 'in', to_workflow_stage_domain)]"/>
+                            <field name="action_title"/>
+                            <field name="return_action_name" attrs="{'readonly': [('can_return', '=', False)]}"/>
+                            <field name="return_action_title" attrs="{'readonly': [('can_return', '=', False)]}"/>
+                        </group>
+                        <field name="from_workflow_stage_domain" invisible="1"/>
+                        <field name="to_workflow_stage_domain" invisible="1"/>
+                        <field name="workflow_domain" invisible="1"/>
+                        <field name="workflow_transition_domain" invisible="1"/>
+                        <field name="root_workflow_id" invisible="1"/>
+                        <field name="context_type" invisible="1"/>
+                        <field name="workflow_allowed" invisible="1"/>
+                        <field name="workflow_transition_allowed" invisible="1"/>
+                        <field name="has_procedure_stage_transitions" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page id="workflow.stage.transition.workflow_procedure_stage_transition_ids" name="Procedure Stage Transitions" attrs="{'invisible':[('has_procedure_stage_transitions', '=', False)]}">
+                            <field name="workflow_procedure_stage_transition_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_workflow_stage_transition_inline_sibling_form" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.inline.sibling.form</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <form string="Workflow Stage Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="from_workflow_stage_id" domain="['&amp;', ('workflow_id', '=', workflow_id), ('id', '!=', to_workflow_stage_id)]"/>
+                            <field name="workflow_id" domain="['&amp;', ('activity_workflow', '=', True), ('root_workflow_id', '=', root_workflow_id)]" readonly="1"/>
+                            <field name="action_name"/>
+                        </group>
+                        <group>
+                            <field name="to_workflow_stage_id" domain="['&amp;', ('workflow_id', '=', workflow_id), ('id', '!=', from_workflow_stage_id)]"/>
+                            <field name="can_return" widget="boolean_toggle"/>
+                            <field name="return_action_name" attrs="{'invisible': [('can_return', '=', False)]}"/>
+                        </group>
+                        <field name="root_workflow_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="workflow_stage_transition_search" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.search</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <search string="Workflow Stage Transitions">
+                <field name="name" string="Name"/>
+                <field name="return_action_name" string="Return Action Name"/>
+                <filter string="Workflow Context" name="workflow_context" domain="[('context_type', '=', 'sibling')]"/>
+                <filter string="Workflow Transition Context" name="workflow_transition_context" domain="[('context_type', '=', 'transition')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Root Workflow" name="wkfsttrrootwkf" domain="" context="{'group_by':'root_workflow_id'}"/>
+                    <filter string="Workflow" name="wkfsttrwkf" domain="" context="{'group_by':'workflow_id'}"/>
+                    <filter string="Workflow Transition" name="wkfsttrwkftr" domain="" context="{'group_by':'workflow_transition_id'}"/>
+                    <filter string="From Stage" name="wkfsttrfromwkfst" domain="" context="{'group_by':'from_workflow_stage_id'}"/>
+                    <filter string="To Stage" name="wkfsttrtowkfst" domain="" context="{'group_by':'to_workflow_stage_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_workflow_stage_transition_kanban" model="ir.ui.view">
+        <field name="name">workflow.stage.transition.kanban</field>
+        <field name="model">workflow.stage.transition</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_id" optional="hide" readonly="1"/>
+                <field name="context_type" optional="hide" readonly="1"/>
+                <field name="workflow_id" optional="hide" readonly="1"/>
+                <field name="workflow_transition_id" optional="hide" readonly="1"/>
+                <field name="from_workflow_stage_id" optional="hide" readonly="1"/>
+                <field name="to_workflow_stage_id" optional="hide" readonly="1"/>
+                <field name="action_name" readonly="1"/>
+                <field name="return_action_name" readonly="1"/>
+                <field name="button_type" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="can_return" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.root_workflow_id.value">
+                                    <span>Root : </span>
+                                    <field name="root_workflow_id"/>
+                                </div>
+                                <div t-if="record.context_type.value">
+                                    <span>Context Type : </span>
+                                    <field name="context_type"/>
+                                </div>
+                                <div t-if="record.workflow_id.value">
+                                    <span>Route Context : </span>
+                                    <field name="workflow_id"/>
+                                </div>
+                                <div t-if="record.workflow_transition_id.value">
+                                    <span>Transition Context : </span>
+                                    <field name="workflow_transition_id"/>
+                                </div>
+                                <div t-if="record.from_workflow_stage_id.value">
+                                    <span>From Stage : </span>
+                                    <field name="from_workflow_stage_id"/>
+                                </div>
+                                <div t-if="record.to_workflow_stage_id.value">
+                                    <span>To Stage : </span>
+                                    <field name="to_workflow_stage_id"/>
+                                </div>
+                                <div t-if="record.action_name.value">
+                                    <span>Action : </span>
+                                    <field name="action_name"/>
+                                </div>
+                                <div t-if="record.return_action_name.value">
+                                    <span>Return Action : </span>
+                                    <field name="return_action_name"/>
+                                </div>
+                                <div t-if="record.button_type.value">
+                                    <span>Button Type : </span>
+                                    <field name="button_type"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Can Return ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="can_return"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

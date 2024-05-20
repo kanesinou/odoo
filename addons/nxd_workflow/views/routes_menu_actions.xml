@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="workflow_action_menu_action" model="ir.actions.act_window">
-        <field name="name">Actions</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">workflow.action</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="view_workflow_action_list" />
-    </record>
-    <record id="workflow_job_menu_action" model="ir.actions.act_window">
-        <field name="name">Jobs</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">workflow.job</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="view_workflow_job_list" />
-    </record>
     <record id="workflow_menu_action" model="ir.actions.act_window">
         <field name="name">Routes</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">workflow</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="view_id" ref="view_workflow_list"/>
+        <field name="context">{'search_default_wkfrootwkf': 1,'search_default_wkfparentwkf': 1}</field>
         <field name="search_view_id" ref="workflow_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow
+            </p>
+            <p>
+                A Workflow defines the route taken by objects.
+                The route can be split into as many sub routes as
+                you want. A Workflow Activity is the atomic
+                subdivision of a route, holds stages and lists
+                the different states displayed at each of these
+                stages.
+            </p>
+        </field>
     </record>
     <record id="workflow_stage_menu_action" model="ir.actions.act_window">
         <field name="name">Route Stages</field>
@@ -28,13 +28,15 @@
         <field name="res_model">workflow.stage</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="view_id" ref="view_workflow_stage_list" />
-    </record>
-    <record id="workflow_state_menu_action" model="ir.actions.act_window">
-        <field name="name">Route States</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">workflow.state</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="view_workflow_state_list" />
+        <field name="context">{'search_default_wkfstagerootwkf': 1,'search_default_wkfstagewkf': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow stage
+            </p>
+            <p>
+                A Workflow Stage is like a station in the trip.
+            </p>
+        </field>
     </record>
     <record id="workflow_transition_menu_action" model="ir.actions.act_window">
         <field name="name">Route Transitions</field>
@@ -42,6 +44,16 @@
         <field name="res_model">workflow.transition</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="view_id" ref="view_workflow_transition_list" />
+        <field name="context">{'search_default_wkfsttrrootwkf': 1,'search_default_wkftrwkf': 1,'search_default_wkftrwkftr': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow Transition
+            </p>
+            <p>
+                A Workflow Transition represents the movement of the processed
+                object from one part to another part of the route.
+            </p>
+        </field>
     </record>
     <record id="workflow_stage_transition_menu_action" model="ir.actions.act_window">
         <field name="name">Route Stage Transitions</field>
@@ -49,12 +61,15 @@
         <field name="res_model">workflow.stage.transition</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="view_id" ref="view_workflow_stage_transition_list" />
-    </record>
-    <record id="workflow_state_transition_menu_action" model="ir.actions.act_window">
-        <field name="name">Route State Transitions</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">workflow.state.transition</field>
-        <field name="view_mode">tree,form,kanban</field>
-        <field name="view_id" ref="view_workflow_state_transition_list" />
+        <field name="context">{'search_default_wkfsttrrootwkf': 1,'search_default_wkfsttrwkf': 1,'search_default_wkfsttrwkftr': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow stage transition
+            </p>
+            <p>
+                A Workflow Stage Transition represents the processed object
+                sent from a work station to another one.
+            </p>
+        </field>
     </record>
 </odoo>

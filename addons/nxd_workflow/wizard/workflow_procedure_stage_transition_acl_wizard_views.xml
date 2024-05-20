@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_stage_transition_acl_wizard" model="ir.ui.view">
+        <field name="name">configure_workflow.procedure.stage.transition.acl.wizard</field>
+        <field name="model">workflow.procedure.stage.transition.acl.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Configure Procedure Stage Transition Access Control List">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_procedure_stage_transition_id" readonly="1"/>
+                            <field name="model_name" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="filter_domain" widget="domain" options="{'model': 'model_name', 'in_dialog': True}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.stage.transition.acl.wizard.workflow_user_ids" name="Granted Users">
+                            <field name="workflow_user_ids"/>
+                        </page>
+                        <page id="workflow.procedure.stage.transition.acl.wizard.workflow_role_ids" name="Granted Roles">
+                            <field name="workflow_role_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button type="object" name="create_procedure_stage_transition_acl_from_wizard" class="btn btn-primary"
+                            string="SAVE"/>
+                    <button string="CANCEL" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

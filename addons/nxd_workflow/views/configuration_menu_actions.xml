@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="workflow_state_menu_action" model="ir.actions.act_window">
+        <field name="name">Route States</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.state</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_state_list" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow state
+            </p>
+            <p>
+                A Workflow State is a label used to mark the processed object
+                through its trip.
+            </p>
+        </field>
+    </record>
+    <record id="workflow_job_menu_action" model="ir.actions.act_window">
+        <field name="name">Jobs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.job</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_job_list" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a workflow job
+            </p>
+            <p>
+                A Workflow Job is either a single task or a bundle of tasks.
+            </p>
+        </field>
+    </record>
+    <record id="workflow_job_add_sub_action" model="ir.actions.act_window">
+        <field name="name">Add Sub Job</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.job</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_workflow_job_inline_form"/>
+        <field name="context">{default_parent_id: active_id}</field>
+    </record>
+    <record id="workflow_user_menu_action" model="ir.actions.act_window">
+        <field name="name">Users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.user</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_user_list" />
+    </record>
+    <record id="workflow_user_role_menu_action" model="ir.actions.act_window">
+        <field name="name">User Roles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflow.user.role</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflow_user_role_list" />
+    </record>
+    <record id="workflowable_type_menu_action" model="ir.actions.act_window">
+        <field name="name">Workflowable Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflowable.type</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_id" ref="view_workflowable_type_list" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new workflowable type
+            </p>
+            <p>
+                An account is part of a ledger allowing your company
+                to register all kinds of debit and credit transactions.
+                Companies present their annual accounts in two main parts: the
+                balance sheet and the income statement (profit and loss
+                account). The annual accounts of a company are required by law
+                to disclose a certain amount of information.
+            </p>
+        </field>
+    </record>
+    <record id="workflowable_menu_action" model="ir.actions.act_window">
+        <field name="name">Workflowables</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">workflowable</field>
+        <field name="view_mode">tree,form,kanban,pivot,graph,activity</field>
+        <field name="view_id" ref="view_workflowable_list"/>
+        <field name="context" eval="{'model':'workflowable'}"/>
+    </record>
+</odoo>

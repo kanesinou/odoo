@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2023, Ousseynou Kane
+# This file is distributed under the same license as the Workflow Management
+# Module package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Workflow Management Module \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-11 11:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.13.1\n"
+
+#: ../../intro/index.rst:2
+msgid "Introduction"
+msgstr "Introduction"
+
+#: ../../intro/index.rst:4
+msgid ""
+"You no longer need to hard code the procedures that form your management "
+"system. This module is the right solution for the digitalisation of "
+"management and operational procedures manual."
+msgstr ""
+"Plus besoin de coder en dur les procédures qui constituent votre système "
+"de gestion. Ce module est la solution à la dématérialisation des manuels "
+"de procédures de gestion et métier."
+
+#: ../../intro/index.rst:7
+msgid ""
+"This document first helps you to understand the basic concepts of "
+"procedure management. Then, you will be presented with a detailed and "
+"pictorial user guide."
+msgstr ""
+"Ce document vous aide d'abord à bien cerner les notions de base qui sont "
+"à la base de la gestion des procédures. A partir de là, il vous sera "
+"présenté un guide détaillé et imagé d'utilisation."
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_cycle_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.list</field>
+        <field name="model">workflow.procedure.cycle</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Cycles">
+                <field name="company_id" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_cycle_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.form</field>
+        <field name="model">workflow.procedure.cycle</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Cycle">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" />
+                        </group>
+                        <group>
+                            <field name="name" />
+                        </group>
+                        <field name="has_durations" invisible="1" />
+                        <field name="has_procedures" invisible="1" />
+                        <field name="has_procedure_transitions" invisible="1" />
+                        <field name="procedure_transitions_allowed" invisible="1" />
+                        <field name="workflow_procedure_domain" invisible="1" />
+                    </group>
+                    <notebook>
+                        <page id="workflow_procedure_cycle.workflow_procedure_ids"
+                              name="Workflow Procedures">
+                            <field name="workflow_procedure_ids"
+                                   domain="[('id', 'in', workflow_procedure_domain)]"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflow_procedure_cycle_procedure_list'}"/>
+                        </page>
+                        <page id="workflow_procedure_cycle.workflow_procedure_transition_ids"
+                              name="Workflow Procedure Transitions"
+                              attrs="{'invisible':[('procedure_transitions_allowed', '=', False)]}">
+                            <field name="workflow_procedure_transition_ids"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflow_procedure_cycle_procedure_transition_list', 'form_view_ref': 'nxd_workflow.view_workflow_procedure_cycle_procedure_transition_form'}"/>
+                        </page>
+                        <page id="workflow_procedure_cycle.workflow_procedure_cycle_duration_ids"
+                              name="Durations"
+                              attrs="{'invisible':[('has_durations', '=', True)]}">
+                            <field name="workflow_procedure_cycle_duration_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_cycle_procedure_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.procedure.list</field>
+        <field name="model">workflow.procedure</field>
+        <field name="arch" type="xml">
+            <tree string="Procedures">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="starter_workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_stage_id" optional="hide" readonly="1"/>
+                <field name="workflowable_type_id" readonly="1"/>
+                <field name="base_procedure" widget="boolean_toggle" readonly="1"/>
+                <field name="activity_procedure" widget="boolean_toggle" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_cycle_procedure_transition_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.procedure.transition.list</field>
+        <field name="model">workflow.procedure.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Transitions">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_transition_id" optional="hide"/>
+                <field name="from_workflow_procedure_cycle_stage_id" optional="hide"/>
+                <field name="to_workflow_procedure_cycle_stage_id" optional="hide"/>
+                <field name="from_workflow_procedure_id"/>
+                <field name="to_workflow_procedure_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_cycle_procedure_transition_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.procedure.transition.form</field>
+        <field name="model">workflow.procedure.transition</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Transition">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_procedure_cycle_id" readonly="1"
+                                   attrs="{'invisible': [('context_type', '!=', 'sibling')]}"/>
+                            <field name="from_workflow_procedure_id"
+                                   domain="[('id', 'in', from_workflow_procedure_cycle_domain)]"/>
+                            <field name="from_workflow_procedure_cycle_stage_id"
+                                   attrs="{'invisible': [('from_workflow_procedure_id', '=', False)]}"
+                                   domain="[('root_workflow_procedure_id', '=', from_workflow_procedure_id)]"/>
+                            <field name="model_name" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="to_workflow_procedure_id"
+                                   domain="[('id', 'in', to_workflow_procedure_cycle_domain)]"/>
+                            <field name="to_workflow_procedure_cycle_stage_id" readonly="1"
+                                   attrs="{'invisible': [('to_workflow_procedure_id', '=', False)]}"/>
+                            <field name="filter_domain" widget="domain"
+                                   options="{'model': 'model_name', 'in_dialog': True}"/>
+                        </group>
+                    </group>
+                    <field name="context_type" invisible="1"/>
+                    <field name="from_workflow_procedure_cycle_domain" invisible="1"/>
+                    <field name="to_workflow_procedure_cycle_domain" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_procedure_cycle_kanban" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.kanban</field>
+        <field name="model">workflow.procedure.cycle</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

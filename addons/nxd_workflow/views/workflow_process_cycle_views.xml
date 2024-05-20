@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_cycle_list" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.list</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <tree string="Process Cycles" create="0" edit="0">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_cycle_id" readonly="1" optional="hide"/>
+                <field name="codename"/>
+                <field name="name"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_cycle_form" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.form</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <form string="Process Cycle" create="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename" readonly="1"/>
+                            <field name="start_datetime" readonly="1"/>
+                            <field name="workflow_procedure_cycle_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="end_datetime" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.process.cycle.workflow_process_ids"
+                              name="Processes" create="0" edit="0"
+                              attrs="{'invisible': [('has_processes', '=', False)]}">
+                            <field name="workflow_process_ids" readonly="1"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflow_process_cycle_process_list'}"/>
+                        </page>
+                        <page id="workflow.process.cycle.workflow_process_transition_ids"
+                              name="Process Transitions" create="0" edit="0"
+                              attrs="{'invisible': [('has_process_transitions', '=', False)]}">
+                            <field name="workflow_process_transition_ids" readonly="1"
+                                   context="{'tree_view_ref': 'nxd_workflow.view_workflow_process_cycle_process_transition_list'}"/>
+                        </page>
+                        <page id="workflow.process.cycle.workflow_process_cycle_duration_ids"
+                              name="Durations" create="0" edit="0"
+                              attrs="{'invisible': [('has_durations', '=', False)]}">
+                            <field name="workflow_process_cycle_duration_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="has_durations" invisible="1"/>
+                    <field name="has_processes" invisible="1"/>
+                    <field name="has_process_transitions" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_workflow_process_cycle_process_list" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.process.list</field>
+        <field name="model">workflow.process</field>
+        <field name="arch" type="xml">
+            <tree string="Processes" create="0" edit="0">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_id" optional="hide" readonly="1"/>
+                <field name="workflowable_id" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="start_datetime" readonly="1"/>
+                <field name="end_datetime" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_cycle_process_transition_list" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.process.transition.list</field>
+        <field name="model">workflow.process.transition</field>
+        <field name="arch" type="xml">
+            <tree string="Process Transitions" create="0" edit="0">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_transition_id" optional="hide"/>
+                <field name="name"/>
+                <field name="from_workflow_process_id" readonly="1"/>
+                <field name="to_workflow_process_id" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_cycle_kanban" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.kanban</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_cycle_id" readonly="1"/>
+                <field name="start_datetime" readonly="1"/>
+                <field name="codename" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>(<span><field name="codename"/></span>)
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_cycle_id.value">
+                                    <span>Procedure Cycle : </span>
+                                    <field name="workflow_procedure_cycle_id"/>
+                                </div>
+                                <div t-if="record.start_datetime.value">
+                                    <span>Start Datetime : </span>
+                                    <field name="start_datetime"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_cycle_calendar" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.calendar</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <calendar date_stop="end_datetime" date_start="start_datetime" string="Process Cycles" delete="0" create="0">
+                <field name="workflow_procedure_cycle_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_cycle_pivot" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.pivot</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <pivot string="Process Cycles Analysis" sample="1">
+                <field name="workflow_procedure_cycle_id" type="col"/>
+                <field name="start_datetime" interval="day" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_cycle_graph" model="ir.ui.view">
+        <field name="name">workflow.process.cycle.graph</field>
+        <field name="model">workflow.process.cycle</field>
+        <field name="arch" type="xml">
+            <graph string="Process Cycles Analysis" sample="1">
+                <field name="workflow_procedure_cycle_id"/>
+                <field name="start_datetime" interval="month"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

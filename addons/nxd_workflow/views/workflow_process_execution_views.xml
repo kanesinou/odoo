@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_process_execution_list" model="ir.ui.view">
+        <field name="name">workflow.process.execution.list</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <tree string="Process Executions" create="0" edit="0">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_execution_id" optional="hide"/>
+                <field name="root_workflow_process_id" optional="hide"/>
+                <field name="mandatory" widget="boolean_toggle" optional="hide"/>
+                <field name="workflow_user_role_id" optional="hide"/>
+                <field name="workflow_process_stage_id"/>
+                <field name="workflow_job_id"/>
+                <field name="workflow_user_id"/>
+                <field name="execution_datetime"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_process_execution_form" model="ir.ui.view">
+        <field name="name">workflow.process.execution.form</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <form string="Process Execution" create="0" edit="0">
+                <header>
+                    <button name="action_configure_execution"
+                            string="Fill In Process Execution" type="object" class="oe_highlight"
+                            title="Fill In the workflow process execution"
+                            attrs="{'invisible': [('is_task_execution', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-play-circle"
+                                string="Workflow Process Execution is waiting to be executed"
+                                attrs="{'invisible': [('is_execution_current', '=', True)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Awaiting</span>
+                            </div>
+                        </button>
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-pause-circle"
+                                string="Workflow Process Execution is in progress"
+                                attrs="{'invisible': [('is_execution_current', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">In Progress</span>
+                            </div>
+                        </button>
+                        <button name="action_execution_status"
+                                type="object" class="oe_stat_button"
+                                icon="fa-solid fa-check-circle"
+                                string="Workflow Process Execution is completely executed"
+                                attrs="{'invisible': [('is_complete', '=', False)]}">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Complete</span>
+                            </div>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="mandatory" widget="boolean_toggle" readonly="1"/>
+                            <field name="workflow_process_stage_id" readonly="1"/>
+                            <field name="root_workflow_process_id" readonly="1"/>
+                            <field name="execution_start_datetime" readonly="1"/>
+                            <field name="execution_complete_datetime" readonly="1"/>
+                            <field name="execution_datetime" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="execution_user_id" readonly="1"/>
+                            <field name="workflow_job_id" readonly="1"/>
+                            <field name="workflow_user_id" readonly="1"/>
+                            <field name="workflow_user_role_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.process.execution.workflow_process_execution_ids" name="Sub Executions"
+                              attrs="{'invisible':[('is_task_execution', '=', True)]}">
+                            <field name="workflow_process_execution_ids"/>
+                        </page>
+                        <page id="workflow.process.execution.workflow_process_stage_ids" name="Aborted Stages"
+                              attrs="{'invisible': [('has_aborted_process_stages', '=', False)]}">
+                            <field name="workflow_process_stage_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="has_aborted_process_stages" invisible="1"/>
+                    <field name="is_task_execution" invisible="1"/>
+                    <field name="has_started" invisible="1"/>
+                    <field name="is_complete" invisible="1"/>
+                    <field name="is_execution_current" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_execution_kanban" model="ir.ui.view">
+        <field name="name">workflow.process.execution.kanban</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="root_workflow_process_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_execution_id" optional="hide" readonly="1"/>
+                <field name="parent_id" optional="hide" readonly="1"/>
+                <field name="workflow_process_stage_id" optional="hide" readonly="1"/>
+                <field name="workflow_job_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_id" optional="hide" readonly="1"/>
+                <field name="workflow_user_role_id" optional="hide" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="mandatory" widget="boolean_toggle" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_execution_id.value">
+                                    <span>Procedure Execution : </span>
+                                    <field name="workflow_procedure_execution_id"/>
+                                </div>
+                                <div t-if="record.workflow_process_stage_id.value">
+                                    <span>Stage : </span>
+                                    <field name="workflow_process_stage_id"/>
+                                </div>
+                                <div t-if="record.workflow_job_id.value">
+                                    <span>Job : </span>
+                                    <field name="workflow_job_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_id.value">
+                                    <span>User : </span>
+                                    <field name="workflow_user_id"/>
+                                </div>
+                                <div t-if="record.workflow_user_role_id.value">
+                                    <span>Role : </span>
+                                    <field name="workflow_user_role_id"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_footer">
+                                <div class="o_kanban_record_bottom mb-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span> Mandatory ?</span>
+                                        <span class="o_kanban_record_subtitle">
+                                            <field name="mandatory"
+                                                   readonly="1"
+                                                   widget="boolean_toggle"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_execution_calendar" model="ir.ui.view">
+        <field name="name">workflow.process.execution.calendar</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <calendar date_stop="execution_complete_datetime"
+                      date_start="execution_start_datetime"
+                      string="Process Executions" delete="0" create="0">
+                <field name="workflow_job_id"/>
+                <field name="execution_user_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_execution_pivot" model="ir.ui.view">
+        <field name="name">workflow.process.execution.pivot</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <pivot string="Process Executions Analysis" sample="1">
+                <field name="workflow_job_id" type="col"/>
+                <field name="execution_start_datetime" interval="day" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_workflow_process_execution_graph" model="ir.ui.view">
+        <field name="name">workflow.process.execution.graph</field>
+        <field name="model">workflow.process.execution</field>
+        <field name="arch" type="xml">
+            <graph string="Process Executions Analysis" sample="1">
+                <field name="workflow_job_id"/>
+                <field name="execution_start_datetime" interval="month"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

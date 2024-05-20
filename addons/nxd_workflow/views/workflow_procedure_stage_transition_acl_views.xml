@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_stage_transition_acl_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.transition.acl.list</field>
+        <field name="model">workflow.procedure.stage.transition.acl</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Stage Transition Access Control Lists">
+                <field name="company_id" optional="hide"/>
+                <field name="root_workflow_procedure_id" optional="hide"/>
+                <field name="workflow_procedure_stage_transition_id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_stage_transition_acl_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.transition.acl.form</field>
+        <field name="model">workflow.procedure.stage.transition.acl</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Stage Transition Access Control List">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="workflow_procedure_stage_transition_id" />
+                        </group>
+                        <group>
+                            <field name="model_name" invisible="1"/>
+                            <field name="filter_domain" widget="domain" options="{'model': 'model_name'}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.stage.transition.acl.workflow_user_ids" name="Granted Users">
+                            <field name="workflow_user_ids"/>
+                        </page>
+                        <page id="workflow.procedure.stage.transition.acl.workflow_role_ids" name="Granted Roles">
+                            <field name="workflow_role_ids"/>
+                        </page>
+                        <page id="workflow.procedure.stage.transition.acl.workflow_process_stage_transition_acl_ids" name="Process Stage Transition ACLs">
+                            <field name="workflow_process_stage_transition_acl_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_workflow_procedure_stage_transition_acl_kanban" model="ir.ui.view">
+        <field name="name">workflow.procedure.stage.transition.acl.kanban</field>
+        <field name="model">workflow.procedure.stage.transition.acl</field>
+        <field name="arch" type="xml">
+            <kanban class="oe_background_grey o_kanban_dashboard">
+                <field name="company_id" optional="hide" readonly="1"/>
+                <field name="workflow_procedure_stage_transition_id" optional="hide" readonly="1"/>
+                <field name="model_name" optional="hide" readonly="1"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_header">
+                                <h4 class="o_primary">
+                                    <span><field name="name"/></span>
+                                </h4>
+                            </div>
+                            <div class="oe_kanban_content mb-2">
+                                <div t-if="record.workflow_procedure_stage_transition_id.value">
+                                    <span>Stage Transition : </span>
+                                    <field name="workflow_procedure_stage_transition_id"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+</odoo>

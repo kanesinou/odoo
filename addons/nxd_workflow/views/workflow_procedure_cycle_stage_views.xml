@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_workflow_procedure_cycle_stage_list" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.stage.list</field>
+        <field name="model">workflow.procedure.cycle.stage</field>
+        <field name="arch" type="xml">
+            <tree string="Procedure Cycle Stages">
+                <field name="company_id" optional="hide"/>
+                <field name="workflow_procedure_cycle_id"/>
+                <field name="codename"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_workflow_procedure_cycle_stage_form" model="ir.ui.view">
+        <field name="name">workflow.procedure.cycle.stage.form</field>
+        <field name="model">workflow.procedure.cycle.stage</field>
+        <field name="arch" type="xml">
+            <form string="Procedure Cycle Stage">
+                <header>
+                    <button name="action_configure_duration"
+                            string="Configure Duration" type="object" class="oe_highlight"
+                            title="Configure the workflow procedure cycle stage duration"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="codename"/>
+                            <field name="workflow_procedure_cycle_id" readonly="1"/>
+                            <field name="time_unit"/>
+                        </group>
+                        <group>
+                            <field name="name"/>
+                            <field name="min_duration" readonly="1"/>
+                            <field name="max_duration" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page id="workflow.procedure.cycle.stage.workflow_procedure_ids" name="Procedures" create="0">
+                            <field name="workflow_procedure_ids"/>
+                        </page>
+                        <page id="workflow.procedure.cycle.stage.inbound_workflow_procedure_cycle_stage_transition_ids" name="Inbound Transitions"
+                              attrs="{'invisible': [('has_inbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="inbound_workflow_procedure_cycle_stage_transition_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.cycle.stage.outbound_workflow_procedure_cycle_stage_transition_ids" name="outbound Transitions"
+                              attrs="{'invisible': [('has_outbound_transitions', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="outbound_workflow_procedure_cycle_stage_transition_ids" readonly="1"/>
+                        </page>
+                        <page id="workflow.procedure.cycle.stage.workflow_process_cycle_stage_ids" name="Process Cycle Stages"
+                              attrs="{'invisible': [('has_process_cycle_stages', '=', False)]}" create="0" edit="0" delete="0">
+                            <field name="workflow_process_cycle_stage_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <field name="has_inbound_transitions" invisible="1"/>
+                    <field name="has_outbound_transitions" invisible="1"/>
+                    <field name="has_process_cycle_stages" invisible="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
